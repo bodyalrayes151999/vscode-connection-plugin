@@ -1,72 +1,223 @@
 # SAP Development Toolkit for VS Code
 
-A comprehensive VS Code extension for SAP UI5/Fiori development, similar to Eclipse SAP Development Tools.
+A comprehensive VS Code extension for SAP UI5/Fiori development with **on-premise SAP system connectivity** (like Eclipse ADT).
 
-## Features
+## 🌟 Key Features
 
-- **Component Management**: Browse and manage SAP UI5 components
-- **Project Generator**: Create new SAPUI5/Fiori projects from templates
-- **Component Installation**: Install SAP components with progress tracking
-- **Component Details**: View detailed information about each component
-- **Status Bar Integration**: Quick access to toolkit features
+### 🔌 SAP On-Premise Connection
+- **Connect to SAP systems** via HTTP/HTTPS
+- **Login GUI** with host, client, user, password (like Eclipse)
+- **Secure credential storage**
+- **Multiple connection management**
+
+### 📦 BSP Application Management
+- **Browse BSP applications** from your SAP system
+- **Download** Fiori/UI5 apps to local workspace
+- **Upload** changes back to SAP system
+- **Real-time sync** with SAP backend
+
+### 🚀 Project Generator
+- Create new SAPUI5/Fiori projects from templates
+- Pre-configured project structures
+- Multiple project templates
+
+### 🛠️ Component Management
+- Browse and manage SAP UI5 components
+- Version tracking
+- Installation simulation
+
+## Quick Start
+
+### 1. Connect to SAP System
+
+```
+Ctrl+Shift+P → "SAP: Connect to System"
+```
+
+Fill in your SAP connection details:
+- Host: `sap.company.com`
+- Port: `443` (HTTPS) or `8000` (HTTP)
+- Client: `100`
+- System ID: `PRD`
+- Username & Password
+
+### 2. View BSP Applications
+
+- Click **SAP Toolkit** icon in Activity Bar
+- Navigate to **BSP Applications** view
+- See all your BSP/Fiori applications
+
+### 3. Download & Edit
+
+- Right-click any BSP application
+- Select **Download BSP Application**
+- Edit locally in VS Code
+- Upload changes back when ready
 
 ## Installation
 
 ### Test Locally (Development)
-1. Open this folder in VS Code
-2. Press `F5` to launch the Extension Development Host
-3. The extension will activate in the new window
+```bash
+# Clone and setup
+cd vscode-connection-plugin
+npm install
+npm run compile
+
+# Press F5 to launch Extension Development Host
+```
 
 ### Package and Install
 ```bash
-# Install VSCE (if needed)
-npm install -g vsce
-
-# Package the extension
+npm install -g @vscode/vsce
 vsce package
-
-# Install the .vsix file
 code --install-extension sap-development-toolkit-1.0.0.vsix
 ```
 
-## Usage
+## Features in Detail
 
-### View SAP Components
-1. Click the **SAP Toolkit** icon in the Activity Bar
-2. Browse available SAP UI5 components
-3. View version information and installation status
+### SAP System Connection
+- ✅ HTTP/HTTPS support
+- ✅ Basic authentication
+- ✅ Connection testing
+- ✅ Multiple connection profiles
+- ✅ Secure credential storage
 
-### Install Components
-1. Right-click on any component
-2. Select **Install Component**
-3. Watch the installation progress
+### BSP Application Operations
+- ✅ List all BSP applications
+- ✅ Download to local workspace
+- ✅ Upload changes to SAP
+- ✅ View application metadata
+- ⏳ Real-time file watching (coming soon)
+- ⏳ Transport request integration (coming soon)
 
-### Create New Project
-1. Open Command Palette (`Ctrl+Shift+P`)
-2. Type **SAP: Create New Project**
-3. Select a template and enter project details
+### Project Templates
+- **Basic SAPUI5 Web Application**
+- **SAP Fiori Master-Detail Application**
+- **Custom UI5 Control Library**
+
+## Available Commands
+
+| Command | Description |
+|---------|-------------|
+| `SAP: Connect to System` | Open connection dialog |
+| `SAP: Select Connection` | Switch between saved connections |
+| `SAP: Create New Project` | Generate new SAPUI5 project |
+| `Download BSP Application` | Download from SAP system |
+| `Upload BSP Application` | Upload changes to SAP |
+| `Refresh` | Refresh BSP applications list |
+
+## Extension Views
+
+### 1. SAP Components
+Browse and install SAP UI5 components with version information
+
+### 2. BSP Applications
+Tree view showing all BSP/Fiori applications from connected SAP system
+
+## Requirements
+
+- **VS Code** 1.74.0 or higher
+- **Node.js** 14.x or higher
+- **SAP System** with UI5 Repository service enabled
+- **SAP Authorization**: S_DEVELOP, S_ICF, S_SERVICE
 
 ## Configuration
 
-- **Show Versions**: Display component versions in tree view
-- **Auto Refresh**: Automatically refresh component list
-- **UI5 Version**: Default SAPUI5 version (1.108.0)
+Settings available in `File > Preferences > Settings`:
 
-## Commands
+- `sapToolkit.showVersions` - Display component versions
+- `sapToolkit.autoRefresh` - Auto-refresh component list
+- `sapToolkit.ui5Version` - Default SAPUI5 version (1.108.0)
 
-- `SAP: Create New Project` - Create a new SAPUI5/Fiori project
-- `Refresh` - Refresh the component list
+## Documentation
 
-## Development
+- 📘 [SAP Connection Guide](SAP_CONNECTION_GUIDE.md) - Detailed connection setup
+- 🚀 [Quick Start Guide](QUICKSTART.md) - Get started quickly
 
-```bash
-npm install
-npm run compile
-npm run watch
+## Architecture
+
+```
+vscode-connection-plugin/
+├── src/
+│   ├── managers/
+│   │   └── SapConnectionManager.ts     # SAP system connectivity
+│   ├── providers/
+│   │   ├── SapToolkitProvider.ts       # Component tree
+│   │   └── BspApplicationProvider.ts   # BSP app tree
+│   ├── ui/
+│   │   └── ConnectionUIProvider.ts     # Connection dialog
+│   ├── generators/
+│   │   └── ProjectGenerator.ts         # Project scaffolding
+│   └── extension.ts                    # Main extension
 ```
 
-Press `F5` to test the extension.
+## Workflow Example
+
+```bash
+# 1. Connect to SAP
+Open Command Palette → "SAP: Connect to System"
+
+# 2. Browse apps
+Click SAP Toolkit → BSP Applications
+
+# 3. Download
+Right-click app → Download BSP Application
+
+# 4. Edit locally
+Make your changes in VS Code
+
+# 5. Upload
+Right-click app → Upload BSP Application
+
+# 6. Test in SAP
+Open in browser using SAP URL
+```
+
+## Troubleshooting
+
+### Connection Issues
+- Verify host and port
+- Check VPN/network access
+- Confirm SAP system is running
+- Try toggling HTTPS on/off
+
+### Authorization Issues
+- Contact SAP Basis team
+- Verify S_DEVELOP authorization
+- Check UI5 Repository access
+
+See [SAP Connection Guide](SAP_CONNECTION_GUIDE.md) for more troubleshooting.
+
+## Roadmap
+
+- [x] SAP system connection
+- [x] BSP application download/upload
+- [x] Multiple connection management
+- [x] Project templates
+- [ ] Real-time file synchronization
+- [ ] Transport request integration
+- [ ] Advanced debugging
+- [ ] OData service integration
+- [ ] Code snippets for SAPUI5
+
+## Contributing
+
+1. Fork the repository
+2. Create feature branch
+3. Commit changes
+4. Push to branch
+5. Create Pull Request
 
 ## License
 
-MIT
+MIT License
+
+## Support
+
+For issues and feature requests:
+- GitHub Issues: [Create Issue](https://github.com/bodyalrayes151999/vscode-connection-plugin/issues)
+- Documentation: See [SAP_CONNECTION_GUIDE.md](SAP_CONNECTION_GUIDE.md)
+
+---
+
+**Enjoy SAP development in VS Code!** 🚀
