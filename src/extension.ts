@@ -1,7 +1,11 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
+import * as fs from 'fs';
 import { SapToolkitProvider, SapComponentItem } from './providers/SapToolkitProvider';
+import { BspApplicationProvider, BspApplicationItem } from './providers/BspApplicationProvider';
 import { ProjectGenerator } from './generators/ProjectGenerator';
+import { SapConnectionManager, BspApplication } from './managers/SapConnectionManager';
+import { ConnectionUIProvider } from './ui/ConnectionUIProvider';
 
 export function activate(context: vscode.ExtensionContext) {
 	console.log('SAP Development Toolkit is now active!');
@@ -9,11 +13,114 @@ export function activate(context: vscode.ExtensionContext) {
 	const workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
 
 	// Initialize components
+	const connectionManager = new SapConnectionManager(context);
 	const sapProvider = new SapToolkitProvider(workspaceRoot);
+	const bspProvider = new BspApplicationProvider(connectionManager);
 	const projectGenerator = new ProjectGenerator();
+	const connectionUI = new ConnectionUIProvider(context, connectionManager);
 	
-	// Register tree data provider
+	// Register tree data providers
 	vscode.window.registerTreeDataProvider('sapToolkitExplorer', sapProvider);
+	vscode.window.registerTreeDataProvider('bspApplicationExplorer', bspProvider);
+	
+	// Register SAP connection commands
+	const connectCommand = vscode.commands.registerCommand('sapToolkit.connectToSap', async () => {
+		const connection = await connectionUI.showConnectionDialog();
+		if (connection) {
+			bspProvider.refresh();
+		}
+	});
+	
+	const selectConnectionCommand = vscode.commands.registerCommand('sapToolkit.selectConnection', async () => {
+		await connectionUI.showConnectionList();
+		bspProvider.refresh();
+	});
+	
+	// Register BSP application commands
+	const refreshBspCommand = vscode.commands.registerCommand('sapToolkit.refreshBspApplications', () => {
+		bspProvider.refresh();
+		vscode.window.showInformationMessage('BSP Applications refreshed!');
+	});
+	
+	const downloadBspCommand = vscode.commands.registerCommand('sapToolkit.downloadBspApplication', async (item: BspApplicationItem) => {
+		if (!item || !item.application) {
+			return;
+		}
+
+		const connection = connectionManager.getActiveConnection();
+		if (!connection) {
+			vscode.window.showErrorMessage('No active SAP connection');
+			return;
+		}
+
+		const uri = await vscode.window.showOpenDialog({
+			canSelectFiles: false,
+			canSelectFolders: true,
+			canSelectMany: false,
+			openLabel: 'Select Download Location'
+		});
+
+		if (uri && uri[0]) {
+			const targetPath = path.join(uri[0].fsPath, item.application.name);
+			
+			await vscode.window.withProgress({
+				location: vscode.ProgressLocation.Notification,
+				title: `Downloading ${item.application.name}...`,
+				cancellable: false
+			}, async (progress) => {
+				try {
+					await connectionManager.downloadBspApplication(connection, item.application.name, targetPath);
+					vscode.window.showInformationMessage(`Downloaded ${item.application.name} to ${targetPath}`,
+						'Open Folder'
+					).then(selection => {
+						if (selection === 'Open Folder') {
+							vscode.commands.executeCommand('vscode.openFolder', vscode.Uri.file(targetPath));
+						}
+					});
+				} catch (error) {
+					vscode.window.showErrorMessage(`Download failed: ${error}`);
+				}
+			});
+		}
+	});
+	
+	const uploadBspCommand = vscode.commands.registerCommand('sapToolkit.uploadBspApplication', async (item: BspApplicationItem) => {
+		if (!item || !item.application) {
+			return;
+		}
+
+		const connection = connectionManager.getActiveConnection();
+		if (!connection) {
+			vscode.window.showErrorMessage('No active SAP connection');
+			return;
+		}
+
+		const answer = await vscode.window.showWarningMessage(
+			`Upload changes to ${item.application.name}?`,
+			{ modal: true },
+			'Upload'
+		);
+
+		if (answer === 'Upload') {
+			await vscode.window.withProgress({
+				location: vscode.ProgressLocation.Notification,
+				title: `Uploading ${item.application.name}...`,
+				cancellable: false
+			}, async (progress) => {
+				try {
+					const workspaceFolder = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath || '';
+					await connectionManager.uploadBspApplication(connection, item.application.name, workspaceFolder);
+					vscode.window.showInformationMessage(`Successfully uploaded ${item.application.name}`);
+				} catch (error) {
+					vscode.window.showErrorMessage(`Upload failed: ${error}`);
+				}
+			});
+		}
+	});
+	
+	const openBspCommand = vscode.commands.registerCommand('sapToolkit.openBspApplication', async (application: BspApplication) => {
+		vscode.window.showInformationMessage(`Open BSP Application: ${application.name}`);
+	});
 	
 	// Register refresh command
 	const refreshCommand = vscode.commands.registerCommand('sapToolkit.refreshEntry', () => {
@@ -51,7 +158,7 @@ export function activate(context: vscode.ExtensionContext) {
 			const name = await vscode.window.showInputBox({
 				prompt: 'Enter project name',
 				placeHolder: 'my-sapui5-app',
-				validateInput: (value) => {
+				validateInput: (value: string) => {
 					return value && value.length > 0 ? null : 'Project name is required';
 				}
 			});
@@ -80,12 +187,18 @@ export function activate(context: vscode.ExtensionContext) {
 	// Create status bar item
 	const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
 	statusBarItem.text = '$(package) SAP Toolkit';
-	statusBarItem.tooltip = 'SAP Development Toolkit - Click to refresh';
-	statusBarItem.command = 'sapToolkit.refreshEntry';
+	statusBarItem.tooltip = 'SAP Development Toolkit - Click to select connection';
+	statusBarItem.command = 'sapToolkit.selectConnection';
 	statusBarItem.show();
 	
 	// Add to subscriptions
 	context.subscriptions.push(
+		connectCommand,
+		selectConnectionCommand,
+		refreshBspCommand,
+		downloadBspCommand,
+		uploadBspCommand,
+		openBspCommand,
 		refreshCommand,
 		installCommand,
 		showDetailsCommand,

@@ -14,7 +14,9 @@
   ],
   "activationEvents": [
     "onView:sapToolkitExplorer",
-    "onCommand:sapToolkit.createProject"
+    "onView:bspApplicationExplorer",
+    "onCommand:sapToolkit.createProject",
+    "onCommand:sapToolkit.connectToSap"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -34,6 +36,12 @@
           "name": "Components",
           "icon": "$(package)",
           "contextualTitle": "SAP Components"
+        },
+        {
+          "id": "bspApplicationExplorer",
+          "name": "BSP Applications",
+          "icon": "$(server-process)",
+          "contextualTitle": "BSP Applications"
         }
       ]
     },
@@ -46,6 +54,32 @@
       {
         "command": "sapToolkit.createProject",
         "title": "SAP: Create New Project"
+      },
+      {
+        "command": "sapToolkit.connectToSap",
+        "title": "SAP: Connect to System",
+        "icon": "$(plug)"
+      },
+      {
+        "command": "sapToolkit.selectConnection",
+        "title": "SAP: Select Connection"
+      },
+      {
+        "command": "sapToolkit.refreshBspApplications",
+        "title": "Refresh BSP Applications",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "sapToolkit.downloadBspApplication",
+        "title": "Download BSP Application"
+      },
+      {
+        "command": "sapToolkit.uploadBspApplication",
+        "title": "Upload BSP Application"
+      },
+      {
+        "command": "sapToolkit.openBspApplication",
+        "title": "Open BSP Application"
       },
       {
         "command": "sapToolkit.installComponent",
@@ -66,6 +100,16 @@
           "command": "sapToolkit.refreshEntry",
           "when": "view == sapToolkitExplorer",
           "group": "navigation"
+        },
+        {
+          "command": "sapToolkit.connectToSap",
+          "when": "view == bspApplicationExplorer",
+          "group": "navigation"
+        },
+        {
+          "command": "sapToolkit.refreshBspApplications",
+          "when": "view == bspApplicationExplorer",
+          "group": "navigation"
         }
       ],
       "view/item/context": [
@@ -76,11 +120,25 @@
         {
           "command": "sapToolkit.showComponentDetails",
           "when": "view == sapToolkitExplorer && viewItem == component"
+        },
+        {
+          "command": "sapToolkit.downloadBspApplication",
+          "when": "view == bspApplicationExplorer && viewItem == bspApplication"
+        },
+        {
+          "command": "sapToolkit.uploadBspApplication",
+          "when": "view == bspApplicationExplorer && viewItem == bspApplication"
         }
       ],
       "commandPalette": [
         {
           "command": "sapToolkit.createProject"
+        },
+        {
+          "command": "sapToolkit.connectToSap"
+        },
+        {
+          "command": "sapToolkit.selectConnection"
         }
       ]
     },
