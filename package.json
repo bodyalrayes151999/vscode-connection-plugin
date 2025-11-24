@@ -182,6 +182,7 @@
   },
   "dependencies": {
     "adm-zip": "^0.5.10",
-    "https-proxy-agent": "^7.0.6"
+    "https-proxy-agent": "^7.0.6",
+    "socks-proxy-agent": "^8.0.5"
   }
 }

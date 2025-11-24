@@ -3,6 +3,7 @@ import * as https from 'https';
 import * as http from 'http';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 import { SapRouterClient } from '../utils/SapRouterClient';
+import { SapRouterTunnel } from '../utils/SapRouterTunnel';
 
 export interface SapConnection {
     name: string;
@@ -125,84 +126,77 @@ export class SapConnectionManager {
         try {
             console.log(`Testing connection through SAP Router: ${connection.saprouter}`);
             
-            // Parse SAP Router string to get host and port
-            // Format: /H/host or /H/host/S/port
-            const routerMatch = connection.saprouter!.match(/\/H\/([^\/]+)(?:\/S\/(\d+))?/);
-            if (!routerMatch) {
-                throw new Error('Invalid SAP Router format');
-            }
-            
-            const routerHost = routerMatch[1];
-            const routerPort = routerMatch[2] ? parseInt(routerMatch[2]) : 3299; // Default SAP Router port
-            
-            console.log(`Using SAP Router as HTTP proxy: ${routerHost}:${routerPort}`);
-            
-            // Try using SAP Router as HTTP CONNECT proxy
-            const proxyUrl = `http://${routerHost}:${routerPort}`;
-            const agent = new HttpsProxyAgent(proxyUrl);
-            
-            const auth = connection.username && connection.password
-                ? Buffer.from(`${connection.username}:${connection.password}`).toString('base64')
-                : undefined;
-            
-            return new Promise((resolve) => {
-                const options: any = {
-                    hostname: connection.host,
-                    port: connection.port,
-                    path: '/sap/bc/ping',
-                    method: 'GET',
-                    agent: agent,
-                    rejectUnauthorized: false,
-                    timeout: 30000
-                };
+            // Create SAP Router tunnel
+            const tunnel = new SapRouterTunnel(
+                connection.saprouter!,
+                connection.host,
+                connection.port
+            );
+
+            try {
+                // Establish tunnel connection
+                await tunnel.connect(30000);
+                console.log('SAP Router tunnel established successfully');
+
+                // Send test HTTP request through tunnel
+                const headers: { [key: string]: string } = {};
                 
-                if (auth) {
-                    options.headers = {
-                        'Authorization': `Basic ${auth}`
+                if (connection.username && connection.password) {
+                    const auth = Buffer.from(`${connection.username}:${connection.password}`).toString('base64');
+                    headers['Authorization'] = `Basic ${auth}`;
+                }
+
+                const response = await tunnel.sendHttpRequest('GET', '/sap/public/info', headers);
+                
+                tunnel.close();
+
+                if (response.statusCode === 200 || response.statusCode === 401 || response.statusCode === 403) {
+                    return { 
+                        success: true, 
+                        message: `Connection successful through SAP Router!\nHTTP Status: ${response.statusCode}` 
+                    };
+                } else {
+                    return { 
+                        success: false, 
+                        message: `SAP system returned status ${response.statusCode}` 
+                    };
+                }
+            } catch (tunnelError: any) {
+                tunnel.close();
+                
+                // If error code 78 or 79, provide helpful message
+                if (tunnelError.message.includes('error code 78') || tunnelError.message.includes('invalid route')) {
+                    return {
+                        success: false,
+                        message: `SAP Router Access Denied (Error 78)\n\n` +
+                                 `This error means the SAP Router is not configured to allow this connection.\n\n` +
+                                 `Solutions:\n` +
+                                 `  1. Contact SAP Basis team to add route permission in saprouttab\n` +
+                                 `  2. Connect via VPN and use Direct Connection mode\n` +
+                                 `  3. Use "Open in SAP GUI" option (works without special permissions)\n\n` +
+                                 `Technical: Router at ${connection.saprouter} rejected route to ${connection.host}:${connection.port}`
+                    };
+                } else if (tunnelError.message.includes('error code 79') || tunnelError.message.includes('access denied')) {
+                    return {
+                        success: false,
+                        message: `SAP Router Access Denied (Error 79)\n\n` +
+                                 `The SAP Router explicitly denied access.\n` +
+                                 `Contact SAP Basis team to configure router permissions.`
                     };
                 }
                 
-                console.log(`Connecting to ${connection.host}:${connection.port} via proxy...`);
-                
-                const protocol = connection.secure ? https : http;
-                const req = protocol.request(options, (res) => {
-                    console.log(`Proxy response status: ${res.statusCode}`);
-                    
-                    if (res.statusCode === 200 || res.statusCode === 401) {
-                        resolve({ success: true, message: 'Connection successful through SAP Router (HTTP proxy mode)' });
-                    } else {
-                        resolve({ success: false, message: `Connection failed with status ${res.statusCode}` });
-                    }
-                });
-                
-                req.on('error', (error) => {
-                    console.error('Proxy connection error:', error);
-                    
-                    // If HTTP proxy failed, fall back to custom NI protocol
-                    console.log('HTTP proxy failed, trying SAP NI protocol...');
-                    this.testConnectionWithNIProtocol(connection).then(resolve).catch(() => {
-                        resolve({
-                            success: false,
-                            message: `SAP Router connection failed. Please:\n` +
-                                     `  • Ensure you can access the router at ${routerHost}:${routerPort}\n` +
-                                     `  • Contact SAP Basis for router permissions\n` +
-                                     `  • Or connect via VPN and use Direct Connection\n\n` +
-                                     `Error: ${error.message}`
-                        });
-                    });
-                });
-                
-                req.on('timeout', () => {
-                    console.error('Proxy connection timeout');
-                    req.destroy();
-                    resolve({ success: false, message: 'Connection timeout through SAP Router' });
-                });
-                
-                req.end();
-            });
+                throw tunnelError;
+            }
         } catch (error: any) {
             console.error('Router connection error:', error);
-            return { success: false, message: `SAP Router error: ${error.message}` };
+            return { 
+                success: false, 
+                message: `SAP Router connection failed: ${error.message}\n\n` +
+                         `Try:\n` +
+                         `  • Use "Open in SAP GUI" option\n` +
+                         `  • Connect via VPN and use Direct Connection\n` +
+                         `  • Contact SAP Basis for router permissions`
+            };
         }
     }
     
