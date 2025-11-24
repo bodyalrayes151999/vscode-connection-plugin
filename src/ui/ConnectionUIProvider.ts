@@ -52,6 +52,23 @@ export class ConnectionUIProvider {
             return undefined;
         }
 
+        // Ask for client number
+        const client = await vscode.window.showInputBox({
+            prompt: 'Enter SAP Client (Mandant)',
+            placeHolder: '500',
+            value: selected.connection.client || '500',
+            validateInput: (value) => {
+                if (!value || !/^\d{3}$/.test(value)) {
+                    return 'Client must be a 3-digit number (e.g., 500)';
+                }
+                return null;
+            }
+        });
+
+        if (!client) {
+            return undefined;
+        }
+
         // Ask for username and password
         const username = await vscode.window.showInputBox({
             prompt: 'Enter your SAP username',
@@ -77,7 +94,7 @@ export class ConnectionUIProvider {
             name: partialConnection.name || selected.connection.name,
             host: partialConnection.host || '',
             port: partialConnection.port || 443,
-            client: partialConnection.client || selected.connection.client || '',
+            client: client,  // Use the client entered by user
             systemId: partialConnection.systemId || '',
             saprouter: partialConnection.saprouter,
             secure: partialConnection.secure !== undefined ? partialConnection.secure : true,
