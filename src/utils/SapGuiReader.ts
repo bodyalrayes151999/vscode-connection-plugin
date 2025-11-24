@@ -16,15 +16,32 @@ interface SapGuiConnection {
 }
 
 export class SapGuiReader {
-    private sapLogonIniPath: string = '';
+    private sapLogonFilePath: string = '';
+    private fileType: 'xml' | 'ini' | '' = '';
 
     constructor() {
-        this.findSapLogonIni();
+        this.findSapLogonFile();
     }
 
-    private findSapLogonIni(): void {
-        // Common SAP GUI installation paths
-        const possiblePaths = [
+    private findSapLogonFile(): void {
+        // Check for XML format first (newer)
+        const xmlPaths = [
+            path.join(process.env.APPDATA || '', 'SAP', 'Common', 'SAPUILandscape.xml'),
+            path.join(process.env.USERPROFILE || '', 'AppData', 'Roaming', 'SAP', 'Common', 'SAPUILandscape.xml'),
+            'C:\\Users\\Public\\SAP\\Common\\SAPUILandscape.xml'
+        ];
+
+        for (const p of xmlPaths) {
+            if (fs.existsSync(p)) {
+                this.sapLogonFilePath = p;
+                this.fileType = 'xml';
+                console.log(`Found SAPUILandscape.xml at: ${p}`);
+                return;
+            }
+        }
+
+        // Fall back to INI format (older)
+        const iniPaths = [
             path.join(process.env.APPDATA || '', 'SAP', 'Common', 'saplogon.ini'),
             path.join(process.env.USERPROFILE || '', 'AppData', 'Roaming', 'SAP', 'Common', 'saplogon.ini'),
             'C:\\Users\\Public\\SAP\\Common\\saplogon.ini',
@@ -32,27 +49,81 @@ export class SapGuiReader {
             path.join(process.env.SYSTEMROOT || 'C:\\Windows', 'saplogon.ini')
         ];
 
-        for (const p of possiblePaths) {
+        for (const p of iniPaths) {
             if (fs.existsSync(p)) {
-                this.sapLogonIniPath = p;
+                this.sapLogonFilePath = p;
+                this.fileType = 'ini';
                 console.log(`Found saplogon.ini at: ${p}`);
-                break;
+                return;
             }
         }
     }
 
     async readSapGuiConnections(): Promise<SapGuiConnection[]> {
-        if (!this.sapLogonIniPath || !fs.existsSync(this.sapLogonIniPath)) {
+        if (!this.sapLogonFilePath || !fs.existsSync(this.sapLogonFilePath)) {
             return [];
         }
 
         try {
-            const content = fs.readFileSync(this.sapLogonIniPath, 'utf-8');
-            return this.parseSapLogonIni(content);
+            const content = fs.readFileSync(this.sapLogonFilePath, 'utf-8');
+            
+            if (this.fileType === 'xml') {
+                return this.parseSapUILandscapeXml(content);
+            } else {
+                return this.parseSapLogonIni(content);
+            }
         } catch (error) {
-            console.error('Error reading saplogon.ini:', error);
+            console.error('Error reading SAP Logon file:', error);
             return [];
         }
+    }
+
+    private parseSapUILandscapeXml(content: string): SapGuiConnection[] {
+        const connections: SapGuiConnection[] = [];
+
+        try {
+            // Extract all <Service> entries with their properties
+            const serviceRegex = /<Service[^>]*name="([^"]*)"[^>]*type="SAPGUI"[^>]*>([\s\S]*?)<\/Service>/gi;
+            let serviceMatch;
+
+            while ((serviceMatch = serviceRegex.exec(content)) !== null) {
+                const serviceName = serviceMatch[1];
+                const serviceContent = serviceMatch[2];
+
+                // Helper to extract Item values
+                const getValue = (key: string): string | undefined => {
+                    const itemRegex = new RegExp(`<Item[^>]*name="${key}"[^>]*value="([^"]*)"`, 'i');
+                    const match = serviceContent.match(itemRegex);
+                    return match ? match[1] : undefined;
+                };
+
+                const systemId = getValue('SystemId') || getValue('SID') || getValue('sid');
+                const server = getValue('Server') || getValue('server') || getValue('ashost');
+                const systemNumber = getValue('SystemNumber') || getValue('systemnumber') || getValue('sysnr');
+                const client = getValue('Client') || getValue('client');
+                const router = getValue('Router') || getValue('router') || getValue('SAPRouter') || getValue('saprouter');
+                const description = getValue('Description') || getValue('description');
+
+                // Only add if we have minimum required fields
+                if (systemId && server && systemNumber) {
+                    connections.push({
+                        name: serviceName,
+                        description: description || serviceName,
+                        application_server: server,
+                        server: server,
+                        system_number: systemNumber.padStart(2, '0'),
+                        system_id: systemId.toUpperCase(),
+                        client: client,
+                        saprouter: router,
+                        router: router
+                    });
+                }
+            }
+        } catch (error) {
+            console.error('Error parsing SAPUILandscape.xml:', error);
+        }
+
+        return connections;
     }
 
     private parseSapLogonIni(content: string): SapGuiConnection[] {
@@ -170,10 +241,14 @@ export class SapGuiReader {
     }
 
     getSapLogonIniPath(): string {
-        return this.sapLogonIniPath;
+        return this.sapLogonFilePath;
     }
 
     hasSapGuiInstalled(): boolean {
-        return this.sapLogonIniPath !== '' && fs.existsSync(this.sapLogonIniPath);
+        return this.sapLogonFilePath !== '' && fs.existsSync(this.sapLogonFilePath);
+    }
+
+    getFileType(): string {
+        return this.fileType;
     }
 }
