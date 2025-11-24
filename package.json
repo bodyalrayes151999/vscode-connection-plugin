@@ -1,25 +1,109 @@
 ﻿{
-  "name": "vscode-connection-plugin",
-  "displayName": "VSCode Connection Plugin",
-  "description": "A VS Code extension for managing connections",
-  "version": "0.0.1",
+  "name": "sap-development-toolkit",
+  "displayName": "SAP Development Toolkit",
+  "description": "SAP UI5 Development Tools for VSCode",
+  "version": "1.0.0",
+  "publisher": "your-publisher-name",
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.74.0"
   },
   "categories": [
+    "Programming Languages",
+    "Debuggers",
     "Other"
   ],
   "activationEvents": [
-    "onStartupFinished"
+    "onView:sapToolkitExplorer",
+    "onCommand:sapToolkit.createProject"
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "sap-toolkit",
+          "title": "SAP Toolkit",
+          "icon": "$(package)"
+        }
+      ]
+    },
+    "views": {
+      "sap-toolkit": [
+        {
+          "id": "sapToolkitExplorer",
+          "name": "Components",
+          "icon": "$(package)",
+          "contextualTitle": "SAP Components"
+        }
+      ]
+    },
     "commands": [
       {
-        "command": "vscode-connection-plugin.helloWorld",
-        "title": "Hello World"
+        "command": "sapToolkit.refreshEntry",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "sapToolkit.createProject",
+        "title": "SAP: Create New Project"
+      },
+      {
+        "command": "sapToolkit.installComponent",
+        "title": "Install Component"
+      },
+      {
+        "command": "sapToolkit.showComponentDetails",
+        "title": "Show Details"
+      },
+      {
+        "command": "sapToolkit.startDebugging",
+        "title": "SAP: Start Debugging"
       }
-    ]
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "sapToolkit.refreshEntry",
+          "when": "view == sapToolkitExplorer",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "sapToolkit.installComponent",
+          "when": "view == sapToolkitExplorer && viewItem == component"
+        },
+        {
+          "command": "sapToolkit.showComponentDetails",
+          "when": "view == sapToolkitExplorer && viewItem == component"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "sapToolkit.createProject"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "SAP Development Toolkit",
+      "properties": {
+        "sapToolkit.showVersions": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show component versions in the tree view"
+        },
+        "sapToolkit.autoRefresh": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically refresh component list"
+        },
+        "sapToolkit.ui5Version": {
+          "type": "string",
+          "default": "1.108.0",
+          "description": "Default SAPUI5 version for new projects"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -37,5 +121,8 @@
     "eslint": "^8.54.0",
     "typescript": "^5.3.2",
     "@vscode/test-electron": "^2.3.8"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.10"
   }
 }
