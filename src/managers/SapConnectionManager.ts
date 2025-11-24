@@ -8,6 +8,7 @@ export interface SapConnection {
     port: number;
     client: string;
     systemId: string;
+    saprouter?: string;
     secure: boolean;
     username?: string;
     password?: string;

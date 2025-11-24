@@ -1,13 +1,104 @@
 import * as vscode from 'vscode';
 import { SapConnectionManager, SapConnection } from '../managers/SapConnectionManager';
+import { SapGuiReader } from '../utils/SapGuiReader';
 
 export class ConnectionUIProvider {
+    private sapGuiReader: SapGuiReader;
+
     constructor(
         private context: vscode.ExtensionContext,
         private connectionManager: SapConnectionManager
-    ) {}
+    ) {
+        this.sapGuiReader = new SapGuiReader();
+    }
 
     async showConnectionDialog(): Promise<SapConnection | undefined> {
+        // First, check if SAP GUI is installed and offer to import
+        if (this.sapGuiReader.hasSapGuiInstalled()) {
+            const action = await vscode.window.showInformationMessage(
+                'SAP GUI installation detected. Would you like to import connections from SAP Logon?',
+                'Import from SAP GUI',
+                'Manual Entry'
+            );
+
+            if (action === 'Import from SAP GUI') {
+                return await this.showSapGuiImportDialog();
+            }
+        }
+
+        return await this.showManualConnectionDialog();
+    }
+
+    private async showSapGuiImportDialog(): Promise<SapConnection | undefined> {
+        const guiConnections = await this.sapGuiReader.readSapGuiConnections();
+        
+        if (guiConnections.length === 0) {
+            vscode.window.showWarningMessage('No SAP GUI connections found. Using manual entry.');
+            return await this.showManualConnectionDialog();
+        }
+
+        const items = guiConnections.map(conn => ({
+            label: conn.description || conn.name,
+            description: `${conn.server || conn.application_server} (${conn.system_id})`,
+            detail: conn.saprouter ? `SAP Router: ${conn.saprouter}` : undefined,
+            connection: conn
+        }));
+
+        const selected = await vscode.window.showQuickPick(items, {
+            placeHolder: 'Select SAP system from SAP Logon'
+        });
+
+        if (!selected) {
+            return undefined;
+        }
+
+        // Ask for username and password
+        const username = await vscode.window.showInputBox({
+            prompt: 'Enter your SAP username',
+            placeHolder: 'SAP_USER'
+        });
+
+        if (!username) {
+            return undefined;
+        }
+
+        const password = await vscode.window.showInputBox({
+            prompt: 'Enter your SAP password',
+            password: true
+        });
+
+        if (!password) {
+            return undefined;
+        }
+
+        // Convert to VSCode connection
+        const partialConnection = this.sapGuiReader.convertToVSCodeConnection(selected.connection, username);
+        const connection: SapConnection = {
+            name: partialConnection.name || selected.connection.name,
+            host: partialConnection.host || '',
+            port: partialConnection.port || 443,
+            client: partialConnection.client || selected.connection.client || '',
+            systemId: partialConnection.systemId || '',
+            secure: partialConnection.secure !== undefined ? partialConnection.secure : true,
+            username: username,
+            password: password
+        };
+
+        // Test and save connection
+        const result = await this.connectionManager.testConnection(connection);
+        
+        if (result.success) {
+            await this.connectionManager.addConnection(connection);
+            await this.connectionManager.setActiveConnection(connection.name);
+            vscode.window.showInformationMessage(`Connected to SAP system: ${connection.name}`);
+            return connection;
+        } else {
+            vscode.window.showErrorMessage(`Connection failed: ${result.message}`);
+            return undefined;
+        }
+    }
+
+    private async showManualConnectionDialog(): Promise<SapConnection | undefined> {
         const panel = vscode.window.createWebviewPanel(
             'sapConnection',
             'SAP System Connection',
@@ -195,6 +286,12 @@ export class ConnectionUIProvider {
         </div>
         
         <div class="form-group">
+            <label for="saprouter">SAP Router (Optional):</label>
+            <input type="text" id="saprouter" placeholder="/H/router.company.com/S/3299" />
+            <div class="info-text">SAP Router string (e.g., /H/host/S/port/H/host2)</div>
+        </div>
+        
+        <div class="form-group">
             <label>
                 <input type="checkbox" id="secure" checked />
                 Use HTTPS (Secure Connection)
@@ -232,6 +329,7 @@ export class ConnectionUIProvider {
                 port: document.getElementById('port').value,
                 client: document.getElementById('client').value,
                 systemId: document.getElementById('systemId').value,
+                saprouter: document.getElementById('saprouter').value.trim() || undefined,
                 secure: document.getElementById('secure').checked,
                 username: document.getElementById('username').value,
                 password: document.getElementById('password').value
