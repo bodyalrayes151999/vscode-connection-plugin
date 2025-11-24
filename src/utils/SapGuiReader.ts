@@ -82,40 +82,82 @@ export class SapGuiReader {
         const connections: SapGuiConnection[] = [];
 
         try {
-            // Extract all <Service> entries with their properties
-            const serviceRegex = /<Service[^>]*name="([^"]*)"[^>]*type="SAPGUI"[^>]*>([\s\S]*?)<\/Service>/gi;
-            let serviceMatch;
+            // Extract all <Service> entries with type="SAPGUI"
+            const serviceRegex = /<Service[^>]*type="SAPGUI"[^>]*>/gi;
+            const matches = content.match(serviceRegex);
 
-            while ((serviceMatch = serviceRegex.exec(content)) !== null) {
-                const serviceName = serviceMatch[1];
-                const serviceContent = serviceMatch[2];
+            if (!matches) {
+                return connections;
+            }
 
-                // Helper to extract Item values
-                const getValue = (key: string): string | undefined => {
-                    const itemRegex = new RegExp(`<Item[^>]*name="${key}"[^>]*value="([^"]*)"`, 'i');
-                    const match = serviceContent.match(itemRegex);
+            for (const serviceTag of matches) {
+                // Extract attributes from the Service tag
+                const getName = (): string => {
+                    const match = serviceTag.match(/name="([^"]*)"/i);
+                    return match ? match[1] : '';
+                };
+
+                const getSystemId = (): string => {
+                    const match = serviceTag.match(/systemid="([^"]*)"/i);
+                    return match ? match[1] : '';
+                };
+
+                const getServer = (): { host: string; port: string } => {
+                    const match = serviceTag.match(/server="([^"]*)"/i);
+                    if (match && match[1]) {
+                        const serverValue = match[1];
+                        // Format: "host:port" or just "host"
+                        if (serverValue.includes(':')) {
+                            const [host, port] = serverValue.split(':');
+                            return { host, port };
+                        }
+                        return { host: serverValue, port: '3200' };
+                    }
+                    return { host: '', port: '3200' };
+                };
+
+                const getRouterId = (): string | undefined => {
+                    const match = serviceTag.match(/routerid="([^"]*)"/i);
                     return match ? match[1] : undefined;
                 };
 
-                const systemId = getValue('SystemId') || getValue('SID') || getValue('sid');
-                const server = getValue('Server') || getValue('server') || getValue('ashost');
-                const systemNumber = getValue('SystemNumber') || getValue('systemnumber') || getValue('sysnr');
-                const client = getValue('Client') || getValue('client');
-                const router = getValue('Router') || getValue('router') || getValue('SAPRouter') || getValue('saprouter');
-                const description = getValue('Description') || getValue('description');
+                const name = getName();
+                const systemId = getSystemId();
+                const serverInfo = getServer();
+                const routerId = getRouterId();
+
+                // Find router string if routerId exists
+                let routerString: string | undefined;
+                if (routerId) {
+                    const routerRegex = new RegExp(`<Router[^>]*uuid="${routerId}"[^>]*router="([^"]*)"`, 'i');
+                    const routerMatch = content.match(routerRegex);
+                    if (routerMatch && routerMatch[1]) {
+                        routerString = routerMatch[1].trim();
+                    }
+                }
+
+                // Calculate system number from port (port format: 32NN where NN is system number)
+                let systemNumber = '00';
+                if (serverInfo.port) {
+                    const portNum = parseInt(serverInfo.port);
+                    if (portNum >= 3200 && portNum <= 3299) {
+                        systemNumber = (portNum - 3200).toString().padStart(2, '0');
+                    } else if (portNum >= 3300 && portNum <= 3399) {
+                        systemNumber = (portNum - 3300).toString().padStart(2, '0');
+                    }
+                }
 
                 // Only add if we have minimum required fields
-                if (systemId && server && systemNumber) {
+                if (name && systemId && serverInfo.host) {
                     connections.push({
-                        name: serviceName,
-                        description: description || serviceName,
-                        application_server: server,
-                        server: server,
-                        system_number: systemNumber.padStart(2, '0'),
+                        name: name,
+                        description: name,
+                        application_server: serverInfo.host,
+                        server: serverInfo.host,
+                        system_number: systemNumber,
                         system_id: systemId.toUpperCase(),
-                        client: client,
-                        saprouter: router,
-                        router: router
+                        saprouter: routerString,
+                        router: routerString
                     });
                 }
             }
