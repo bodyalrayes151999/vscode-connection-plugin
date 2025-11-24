@@ -149,6 +149,21 @@ export class SapConnectionManager {
             }
         } catch (error: any) {
             console.error('Router connection error:', error);
+            
+            // Check if it's a router permission error
+            if (error.message.includes('invalid route') || error.message.includes('ECONNRESET')) {
+                return {
+                    success: false,
+                    message: `SAP Router requires permission configuration.\n\n` +
+                             `The SAP Router at ${connection.saprouter} is blocking the connection.\n` +
+                             `Please contact your SAP Basis team to:\n` +
+                             `  • Add route permissions for your machine\n` +
+                             `  • Or connect via VPN and use direct connection (remove SAP Router)\n` +
+                             `  • Or configure router authentication if required\n\n` +
+                             `Technical error: ${error.message}`
+                };
+            }
+            
             return { success: false, message: `SAP Router error: ${error.message}` };
         }
     }

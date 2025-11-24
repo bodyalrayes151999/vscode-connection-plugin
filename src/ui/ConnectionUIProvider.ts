@@ -79,10 +79,33 @@ export class ConnectionUIProvider {
             port: partialConnection.port || 443,
             client: partialConnection.client || selected.connection.client || '',
             systemId: partialConnection.systemId || '',
+            saprouter: partialConnection.saprouter,
             secure: partialConnection.secure !== undefined ? partialConnection.secure : true,
             username: username,
             password: password
         };
+
+        // If SAP Router is configured, ask user if they want to use it
+        if (connection.saprouter) {
+            const useRouter = await vscode.window.showQuickPick(
+                [
+                    { label: 'Use SAP Router', description: connection.saprouter, value: true },
+                    { label: 'Direct Connection (VPN)', description: 'Skip SAP Router if you are on VPN', value: false }
+                ],
+                {
+                    placeHolder: 'This system uses SAP Router. How do you want to connect?'
+                }
+            );
+
+            if (!useRouter) {
+                return undefined;
+            }
+
+            if (!useRouter.value) {
+                delete connection.saprouter;
+                vscode.window.showInformationMessage('SAP Router disabled. Using direct connection.');
+            }
+        }
 
         // Test and save connection
         const result = await this.connectionManager.testConnection(connection);
