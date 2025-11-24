@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import * as https from 'https';
 import * as http from 'http';
+import { SapRouterClient } from '../utils/SapRouterClient';
 
 export interface SapConnection {
     name: string;
@@ -69,6 +70,12 @@ export class SapConnectionManager {
     }
 
     async testConnection(connection: SapConnection): Promise<{ success: boolean; message: string }> {
+        // If SAP Router is configured, use router client
+        if (connection.saprouter) {
+            return this.testConnectionThroughRouter(connection);
+        }
+        
+        // Direct connection (no router)
         return new Promise((resolve) => {
             const protocol = connection.secure ? https : http;
             const options: any = {
@@ -113,7 +120,46 @@ export class SapConnectionManager {
         });
     }
 
+    private async testConnectionThroughRouter(connection: SapConnection): Promise<{ success: boolean; message: string }> {
+        try {
+            console.log(`Testing connection through SAP Router: ${connection.saprouter}`);
+            
+            const headers: any = {};
+            if (connection.username && connection.password) {
+                const auth = Buffer.from(`${connection.username}:${connection.password}`).toString('base64');
+                headers['Authorization'] = `Basic ${auth}`;
+            }
+
+            const response = await SapRouterClient.makeHttpRequest(
+                connection.saprouter!,
+                connection.host,
+                connection.port,
+                '/sap/bc/ping',
+                'GET',
+                headers,
+                connection.secure
+            );
+
+            console.log(`Router response status: ${response.statusCode}`);
+            
+            if (response.statusCode === 200 || response.statusCode === 401) {
+                return { success: true, message: 'Connection successful through SAP Router' };
+            } else {
+                return { success: false, message: `Connection failed with status ${response.statusCode}` };
+            }
+        } catch (error: any) {
+            console.error('Router connection error:', error);
+            return { success: false, message: `SAP Router error: ${error.message}` };
+        }
+    }
+
     async fetchBspApplications(connection: SapConnection): Promise<BspApplication[]> {
+        // If SAP Router is configured, use router client
+        if (connection.saprouter) {
+            return this.fetchBspApplicationsThroughRouter(connection);
+        }
+        
+        // Direct connection (no router)
         return new Promise((resolve, reject) => {
             const protocol = connection.secure ? https : http;
             
@@ -187,6 +233,68 @@ export class SapConnectionManager {
 
             req.end();
         });
+    }
+
+    private async fetchBspApplicationsThroughRouter(connection: SapConnection): Promise<BspApplication[]> {
+        try {
+            console.log(`Fetching BSP applications through SAP Router: ${connection.saprouter}`);
+            
+            const headers: any = {
+                'x-csrf-token': 'fetch',
+                'Accept': 'application/json'
+            };
+            
+            if (connection.username && connection.password) {
+                const auth = Buffer.from(`${connection.username}:${connection.password}`).toString('base64');
+                headers['Authorization'] = `Basic ${auth}`;
+            }
+
+            const path = `/sap/opu/odata/sap/UI5_REPOSITORY_SRV/Repositories?$format=json`;
+            
+            const response = await SapRouterClient.makeHttpRequest(
+                connection.saprouter!,
+                connection.host,
+                connection.port,
+                path,
+                'GET',
+                headers,
+                connection.secure
+            );
+
+            console.log(`BSP fetch response status: ${response.statusCode}`);
+            
+            const apps: BspApplication[] = [];
+            
+            if (response.statusCode === 200) {
+                try {
+                    const json = JSON.parse(response.data);
+                    
+                    if (json.d && json.d.results) {
+                        json.d.results.forEach((repo: any) => {
+                            apps.push({
+                                name: repo.Name,
+                                description: repo.Description || '',
+                                version: repo.Version || '1.0.0',
+                                url: repo.Url || '',
+                                namespace: repo.Namespace || ''
+                            });
+                        });
+                    }
+                    
+                    console.log(`Found ${apps.length} BSP applications through router`);
+                } catch (error) {
+                    console.error('Failed to parse BSP applications:', error);
+                    throw new Error('Failed to parse BSP applications');
+                }
+            } else {
+                throw new Error(`Failed to fetch BSP applications: HTTP ${response.statusCode}`);
+            }
+            
+            return apps;
+        } catch (error: any) {
+            console.error('Router BSP fetch error:', error);
+            throw error;
+        }
     }
 
     async downloadBspApplication(connection: SapConnection, appName: string, targetPath: string): Promise<void> {
