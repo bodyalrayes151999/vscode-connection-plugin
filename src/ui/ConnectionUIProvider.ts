@@ -143,9 +143,14 @@ export class ConnectionUIProvider {
                             client,
                             username
                         );
-                        vscode.window.showInformationMessage(`Launched SAP GUI for ${connection.name}`);
+                        vscode.window.showInformationMessage(
+                            `Launched SAP GUI for ${connection.name}. ` +
+                            `Note: BSP browsing requires direct connection. Please use VPN or contact SAP Basis for router permissions.`,
+                            'Got it'
+                        );
                         // Don't test connection since we're using SAP GUI
-                        return connection;
+                        // Return undefined so we don't try to fetch BSP apps
+                        return undefined;
                     } catch (error: any) {
                         vscode.window.showErrorMessage(`Failed to launch SAP GUI: ${error.message}`);
                         return undefined;
@@ -156,7 +161,18 @@ export class ConnectionUIProvider {
                 }
             } else if (choice.value === 'direct') {
                 delete connection.saprouter;
-                vscode.window.showInformationMessage('SAP Router disabled. Using direct connection.');
+                vscode.window.showInformationMessage('SAP Router disabled. Using direct connection. Make sure you are connected to VPN!');
+            } else {
+                // Keep router, show warning
+                const proceed = await vscode.window.showWarningMessage(
+                    'SAP Router protocol is experimental and may fail without proper permissions. ' +
+                    'Contact SAP Basis team to add route permissions for your machine.',
+                    'Try Anyway',
+                    'Cancel'
+                );
+                if (proceed !== 'Try Anyway') {
+                    return undefined;
+                }
             }
             // If 'router', keep the saprouter and continue to test
         }

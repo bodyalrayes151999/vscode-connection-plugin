@@ -5,8 +5,13 @@ A comprehensive VS Code extension for SAP UI5/Fiori development with **on-premis
 ## 🌟 Key Features
 
 ### 🔌 SAP On-Premise Connection
-- **Connect to SAP systems** via HTTP/HTTPS
-- **Login GUI** with host, client, user, password (like Eclipse)
+- **Auto-import SAP GUI connections** from Windows SAP Logon
+- **Connect to SAP systems** via HTTP/HTTPS or SAP Router
+- **SAP Router support** - automatically detected from SAP GUI
+- **Multiple connection methods**:
+  - Direct connection (when on VPN)
+  - SAP Router protocol (experimental)
+  - Open in SAP GUI (recommended for router systems)
 - **Secure credential storage**
 - **Multiple connection management**
 
@@ -15,6 +20,7 @@ A comprehensive VS Code extension for SAP UI5/Fiori development with **on-premis
 - **Download** Fiori/UI5 apps to local workspace
 - **Upload** changes back to SAP system
 - **Real-time sync** with SAP backend
+- **Works with SAP Router** connections
 
 ### 🚀 Project Generator
 - Create new SAPUI5/Fiori projects from templates
@@ -172,6 +178,30 @@ Right-click app → Upload BSP Application
 # 6. Test in SAP
 Open in browser using SAP URL
 ```
+
+## SAP Router Systems
+
+For systems that require SAP Router (remote access without VPN):
+
+### Option 1: Use SAP GUI Integration (Recommended)
+When connecting to a router-based system, the extension will offer to open SAP GUI:
+- Extension reads connection details from SAP Logon
+- Launches SAP GUI with proper router configuration
+- SAP GUI handles all router authentication
+
+### Option 2: Connect via VPN
+- Connect to your company VPN first
+- Choose "Direct Connection (VPN)" when prompted
+- Extension connects directly, bypassing router
+
+### Option 3: Router Protocol (Experimental)
+- Requires SAP Router permissions from Basis team
+- May need additional configuration
+- Contact SAP Basis to add route permissions for your machine
+
+**Note**: BSP application browsing currently works best with:
+- Direct connections (VPN)
+- Or open the system in SAP GUI first, then the extension can access it
 
 ## Troubleshooting
 
