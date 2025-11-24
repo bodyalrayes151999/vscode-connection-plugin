@@ -1,15 +1,18 @@
 import * as vscode from 'vscode';
 import { SapConnectionManager, SapConnection } from '../managers/SapConnectionManager';
 import { SapGuiReader } from '../utils/SapGuiReader';
+import { SapShcutHelper } from '../utils/SapShcutHelper';
 
 export class ConnectionUIProvider {
     private sapGuiReader: SapGuiReader;
+    private sapShcutHelper: SapShcutHelper;
 
     constructor(
         private context: vscode.ExtensionContext,
         private connectionManager: SapConnectionManager
     ) {
         this.sapGuiReader = new SapGuiReader();
+        this.sapShcutHelper = new SapShcutHelper();
     }
 
     async showConnectionDialog(): Promise<SapConnection | undefined> {
@@ -104,24 +107,58 @@ export class ConnectionUIProvider {
 
         // If SAP Router is configured, ask user if they want to use it
         if (connection.saprouter) {
-            const useRouter = await vscode.window.showQuickPick(
+            const choice = await vscode.window.showQuickPick(
                 [
-                    { label: 'Use SAP Router', description: connection.saprouter, value: true },
-                    { label: 'Direct Connection (VPN)', description: 'Skip SAP Router if you are on VPN', value: false }
+                    { 
+                        label: '$(desktop-download) Open in SAP GUI', 
+                        description: 'Use SAP GUI to handle the connection (Recommended)',
+                        value: 'sapgui' 
+                    },
+                    { 
+                        label: '$(globe) Direct Connection (VPN)', 
+                        description: 'Skip SAP Router if you are on VPN', 
+                        value: 'direct' 
+                    },
+                    {
+                        label: '$(debug-disconnect) Try SAP Router Protocol',
+                        description: 'Experimental - may require router permissions',
+                        value: 'router'
+                    }
                 ],
                 {
-                    placeHolder: 'This system uses SAP Router. How do you want to connect?'
+                    placeHolder: `This system uses SAP Router: ${connection.saprouter}`
                 }
             );
 
-            if (!useRouter) {
+            if (!choice) {
                 return undefined;
             }
 
-            if (!useRouter.value) {
+            if (choice.value === 'sapgui') {
+                // Use SAP GUI to connect
+                if (this.sapShcutHelper.hasSapShcut()) {
+                    try {
+                        await this.sapShcutHelper.connectWithSapShcut(
+                            selected.connection.name,
+                            client,
+                            username
+                        );
+                        vscode.window.showInformationMessage(`Launched SAP GUI for ${connection.name}`);
+                        // Don't test connection since we're using SAP GUI
+                        return connection;
+                    } catch (error: any) {
+                        vscode.window.showErrorMessage(`Failed to launch SAP GUI: ${error.message}`);
+                        return undefined;
+                    }
+                } else {
+                    vscode.window.showErrorMessage('SAP GUI (sapshcut.exe) not found. Please install SAP GUI.');
+                    return undefined;
+                }
+            } else if (choice.value === 'direct') {
                 delete connection.saprouter;
                 vscode.window.showInformationMessage('SAP Router disabled. Using direct connection.');
             }
+            // If 'router', keep the saprouter and continue to test
         }
 
         // Test and save connection
