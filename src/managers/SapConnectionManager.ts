@@ -77,7 +77,7 @@ export class SapConnectionManager {
                 path: '/sap/bc/ping',
                 method: 'GET',
                 rejectUnauthorized: false,
-                timeout: 5000
+                timeout: 30000  // Increased to 30 seconds for slow connections
             };
 
             if (connection.username && connection.password) {
@@ -87,7 +87,10 @@ export class SapConnectionManager {
                 };
             }
 
+            console.log(`Testing connection to ${connection.host}:${connection.port}...`);
+
             const req = protocol.request(options, (res) => {
+                console.log(`Response status: ${res.statusCode}`);
                 if (res.statusCode === 200 || res.statusCode === 401) {
                     resolve({ success: true, message: 'Connection successful' });
                 } else {
@@ -96,12 +99,14 @@ export class SapConnectionManager {
             });
 
             req.on('error', (error) => {
+                console.error('Connection error:', error);
                 resolve({ success: false, message: `Connection error: ${error.message}` });
             });
 
             req.on('timeout', () => {
+                console.error('Connection timeout');
                 req.destroy();
-                resolve({ success: false, message: 'Connection timeout' });
+                resolve({ success: false, message: 'Connection timeout - check if SAP Router is configured correctly' });
             });
 
             req.end();
@@ -121,6 +126,7 @@ export class SapConnectionManager {
                 path: path,
                 method: 'GET',
                 rejectUnauthorized: false,
+                timeout: 30000,  // 30 seconds timeout
                 headers: {
                     'x-csrf-token': 'fetch',
                     'Accept': 'application/json'
@@ -132,7 +138,10 @@ export class SapConnectionManager {
                 options.headers.Authorization = `Basic ${auth}`;
             }
 
+            console.log(`Fetching BSP applications from ${connection.host}:${connection.port}...`);
+
             const req = protocol.request(options, (res) => {
+                console.log(`BSP fetch response status: ${res.statusCode}`);
                 let data = '';
                 
                 res.on('data', (chunk) => {
@@ -156,15 +165,24 @@ export class SapConnectionManager {
                             });
                         }
                         
+                        console.log(`Found ${apps.length} BSP applications`);
                         resolve(apps);
                     } catch (error) {
+                        console.error('Failed to parse BSP applications:', error);
                         reject(new Error('Failed to parse BSP applications'));
                     }
                 });
             });
 
             req.on('error', (error) => {
+                console.error('BSP fetch error:', error);
                 reject(error);
+            });
+
+            req.on('timeout', () => {
+                console.error('BSP fetch timeout');
+                req.destroy();
+                reject(new Error('Request timeout'));
             });
 
             req.end();
