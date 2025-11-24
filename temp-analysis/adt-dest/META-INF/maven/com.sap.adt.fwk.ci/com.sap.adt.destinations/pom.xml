@@ -1,0 +1,14 @@
+<project 
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>com.sap.adt.destinations</artifactId>
+  <version>2.77.1</version>
+  <name>com.sap.adt.destinations</name>
+  <packaging>eclipse-plugin</packaging>
+  <parent>
+    <artifactId>parent</artifactId>
+    <groupId>com.sap.adt.fwk.ci</groupId>
+    <version>2.77.1</version>
+    <relativePath>../parent/pom.xml</relativePath>
+  </parent>
+</project>

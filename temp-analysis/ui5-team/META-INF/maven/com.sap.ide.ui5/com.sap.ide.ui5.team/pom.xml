@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+
+  <!--**************************************************************************
+  * POM SECTION: Maven Model Version Settings
+  ***************************************************************************-->
+
+  <modelVersion>4.0.0</modelVersion>
+  
+  
+  <!--**************************************************************************
+  * POM SECTION: Parent POM Settings
+  ***************************************************************************-->
+
+  <parent>
+    <groupId>com.sap.ide.ui5</groupId>
+    <artifactId>com.sap.ide.ui5.parent</artifactId>
+    <version>1.44.14</version>
+    <relativePath>../com.sap.ide.ui5.parent/pom.xml</relativePath>
+  </parent>
+
+
+  <!--**************************************************************************
+  * POM SECTION: Maven Settings
+  ***************************************************************************-->
+
+  <artifactId>com.sap.ide.ui5.team</artifactId>
+  <packaging>eclipse-plugin</packaging>
+  
+
+  <!--**************************************************************************
+  * POM SECTION: Project Settings
+  ***************************************************************************-->
+
+  <name>com.sap.ide.ui5.team</name>
+  <description>UI5 Tools - Team Provider Core</description>
+  
+  <build>
+	  <plugins>
+	    <!-- Code signing -->
+	    <plugin>
+	        <groupId>com.sap.prd.codesign</groupId>
+	        <artifactId>com.sap.prd.codesign.maven-jarsigner-plugin</artifactId>
+	    </plugin>
+	  </plugins>
+  </build>
+
+</project>

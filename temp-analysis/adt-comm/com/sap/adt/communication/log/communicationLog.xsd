@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.sap.com/adt/communication/log"
+	elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:commLog="http://www.sap.com/adt/communication/log">
+
+
+    <complexType name="CommunicationLogEntry">
+        <annotation>
+        	<documentation>This type defines an entry in the communication log.</documentation>
+        </annotation>
+        <all>
+    		<element name="sessionName" type="string">
+    			<annotation>
+    				<documentation>The name of the session in which this request was sent.</documentation>
+    			</annotation></element>
+    		<element name="requestName" type="string" maxOccurs="1" minOccurs="0">
+    			<annotation>
+    				<documentation>The request name.</documentation>
+    			</annotation></element>
+    		<element name="version" type="string">
+    			<annotation>
+    				<documentation>HTTP version</documentation>
+    			</annotation></element>
+    		<element name="statusCode" type="string">
+    			<annotation>
+    				<documentation>The status code. May not be present if this request has not completed.</documentation>
+    			</annotation></element>
+    		<element name="stackTrace" type="string">
+    			<annotation>
+    				<documentation>The Java stack trace which was current when this request was sent.</documentation>
+    			</annotation></element>
+    		<element name="threadName" type="string">
+    			<annotation>
+    				<documentation>Name of the thread in which this request was sent.</documentation>
+    			</annotation></element>
+    		<element name="destinationProperties" maxOccurs="1"
+    			minOccurs="0">
+                <annotation>
+                	<documentation>Properties of the RFC destination.</documentation>
+                </annotation>
+                <complexType>
+    				<sequence>
+    					<element name="property" maxOccurs="unbounded"
+    						minOccurs="0" type="commLog:Field">
+    					</element>
+    				</sequence>
+    			</complexType>
+    		</element>
+    		<element name="exception" type="commLog:Exception"
+    			minOccurs="0">
+                <annotation>
+                	<documentation>An exception which occurred while processing the request. May not be present if no exception occurred.</documentation>
+                </annotation>
+    		</element>
+    		<element name="request" type="commLog:Request" maxOccurs="1" minOccurs="0">
+    			<annotation>
+    				<documentation>The request.</documentation>
+    			</annotation></element>
+    		<element name="response" type="commLog:Response"
+    			maxOccurs="1" minOccurs="0">
+                <annotation>
+                	<documentation>The response. May not be present if the request has not yet completed or completed with an exception.</documentation>
+                </annotation>
+    		</element>
+    	</all>
+
+    	<attribute name="timestamp" type="long">
+    		<annotation>
+    			<documentation>The timestamp when this entry was started. It is a standard timestamp</documentation>
+    		</annotation></attribute>
+    	<attribute name="creationDate" type="dateTime">
+    		<annotation>
+    			<documentation>The timestamp when this entry was started. It is a standard timestamp</documentation>
+    		</annotation></attribute>    		
+    	<attribute name="elapsedTime" type="int">
+    		<annotation>
+    			<documentation>The time elapsed during the roundtrip in milliseconds.</documentation>
+    		</annotation></attribute>
+    	<attribute name="timeOnServer" type="int">
+    		<annotation>
+    			<documentation>The time elapsed on the server in milliseconds.</documentation></annotation></attribute>
+    	<attribute name="communicationTime" type="int">
+    		<annotation>
+    			<documentation>The time spent on communication in milliseconds.</documentation>
+    		</annotation></attribute>
+    	<attribute name="pendingRequest" type="boolean">
+    		<annotation>
+    			<documentation>This request is currently pending.</documentation>
+    		</annotation></attribute>
+    	<attribute name="backgroundRequest" type="boolean">
+    		<annotation>
+    			<documentation>This request is executed in the background.</documentation>
+    		</annotation></attribute>
+    	<attribute name="cancelled" type="boolean">
+    		<annotation>
+    			<documentation>This request has been cancelled.</documentation>
+    		</annotation></attribute>
+    </complexType>
+
+
+    <element name="communicationLog">
+    	<complexType>
+    		<sequence>
+    			<element name="entry"
+    				type="commLog:CommunicationLogEntry" maxOccurs="unbounded"
+    				minOccurs="0">
+                    <annotation>
+                    	<documentation>Each element is one entry in the communication log and represents a roundtrip to the backend system.</documentation>
+                    </annotation>
+    			</element>
+    		</sequence>
+    		<attribute name="creationDate" type="dateTime" use="required">
+    			<annotation>
+    				<documentation>Timestamp of the creation of this ADT communication log.</documentation>
+    			</annotation></attribute>
+    	</complexType>
+    </element>
+
+    <complexType name="Request">
+    	<complexContent>
+    		<extension base="commLog:Message"></extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="Response">
+    	<complexContent>
+    		<extension base="commLog:Message">
+    			<sequence>
+    				<element name="error" type="commLog:Exception"
+    					maxOccurs="1" minOccurs="0">
+                        <annotation>
+                        	<documentation>Error which occurred during the processing of this request. May not be present if no error occurred.</documentation>
+                        </annotation>
+    				</element>
+    			</sequence>
+    			<attribute name="status" type="int">
+    				<annotation>
+    					<documentation>Response status.</documentation>
+    				</annotation></attribute>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="Exception">
+        <annotation>
+        	<documentation>This type defines an error which occurred during request processing.</documentation>
+        </annotation>
+        <sequence>
+    		<element name="type" type="string" maxOccurs="1" minOccurs="0">
+    			<annotation>
+    				<documentation>Type of the error.</documentation>
+    			</annotation></element>
+    		<element name="subtype" type="string" maxOccurs="1" minOccurs="0">
+    			<annotation>
+    				<documentation>Subtype of the error</documentation>
+    			</annotation></element>
+            <element name="properties" maxOccurs="1" minOccurs="0">
+                <annotation>
+                	<documentation>Error properties</documentation>
+                </annotation>
+                <complexType>
+    				<sequence>
+    					<element name="property" type="commLog:Field" maxOccurs="unbounded" minOccurs="1"></element>
+    				</sequence>
+    			</complexType>
+    		</element>
+            <element name="message" type="commLog:ErrorMessage">
+            	<annotation>
+            		<documentation>The error message</documentation>
+            	</annotation></element>
+    		<element name="localizedMessage"
+    			type="commLog:ErrorMessage">
+                <annotation>
+                	<documentation>The error message in the current user's locale.</documentation>
+                </annotation>
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Message" abstract="true">
+    	<annotation>
+    		<documentation>
+    			This type describes a general message.
+    		</documentation>
+    	</annotation>
+    	<sequence>
+    		<element name="headers" maxOccurs="1" minOccurs="0">
+    			<annotation>
+    				<documentation>
+    					Header fields. May not be present if no headers
+    					were sent or received.
+    				</documentation>
+    			</annotation>
+    			<complexType>
+    				<sequence>
+    					<element name="header" type="commLog:Field"
+    						maxOccurs="unbounded" minOccurs="1">
+    						<annotation>
+    							<documentation>
+    								The header fields.
+    							</documentation>
+    						</annotation>
+    					</element>
+    				</sequence>
+    			</complexType>
+    		</element>
+    		<element name="body" type="string" maxOccurs="1"
+    			minOccurs="0">
+    			<annotation>
+    				<documentation>
+    					Body content of this message. May not be present
+    					if the message had no body.
+    				</documentation>
+    			</annotation>
+    		</element>
+    	</sequence>
+    </complexType>
+
+
+
+    <complexType name="Field">
+        <annotation>
+        	<documentation>This type describes any general type of key -> value mapping</documentation>
+        </annotation>
+        <sequence></sequence>
+    	<attribute name="name" type="string">
+    		<annotation>
+    			<documentation>The name of the key.</documentation>
+    		</annotation></attribute>
+    	<attribute name="value" type="string">
+    		<annotation>
+    			<documentation>The value of this mapping.</documentation>
+    		</annotation></attribute>
+    </complexType>
+
+    <complexType name="ErrorMessage">
+        <annotation>
+        	<documentation>An error message. It extends the xsd:string type with an additional language attribute.</documentation>
+        </annotation>
+        <simpleContent>
+    		<extension base="string">
+    			<attribute name="language">
+                    <annotation>
+                    	<documentation>The language of this message. Should be an ISO 639-1 or SAP language code.</documentation>
+                    </annotation>
+                    <simpleType>
+    					<restriction base="string">
+    						<length value="2"></length>
+    					</restriction>
+    				</simpleType>
+    			</attribute>
+    		</extension>
+    	</simpleContent>
+    </complexType>
+
+</schema>

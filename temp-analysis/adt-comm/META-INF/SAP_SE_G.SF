@@ -1,0 +1,1042 @@
+Signature-Version: 1.0
+SHA-256-Digest-Manifest-Main-Attributes: xuxMgS5M8fdyUkS8zXfA4DdA5AUir
+ J+NrxJXYkBQgmI=
+SHA-256-Digest-Manifest: v1l270ljtFxyHdEqBR8BcbxHVBRgZ2YIigoDk+mSD3U=
+Created-By: 1.8.0_45 (Oracle Corporation)
+
+Name: com/sap/adt/communication/resources/ResourcePreconditionFailedEx
+ ception.class
+SHA-256-Digest: k98PKaMVBdbcSTcF1JObVADTmD9gXD8LTbyi+nVzF5g=
+
+Name: plugin.xml
+SHA-256-Digest: Frt6WWumWJhTZvUTc0IBwWCfdXn4TYtDWwZEnc6yIhU=
+
+Name: com/sap/adt/communication/notification/IAdtCommunicationListener
+ .class
+SHA-256-Digest: 9OP4tc0IO/csTKDjmYsTY22hbKmi0x5a5D2XLsd1XRw=
+
+Name: com/sap/adt/communication/internal/StackTrace.class
+SHA-256-Digest: QGW0db4Zrp1MPzPmb0qgWAOaUUjKTlO/47qJWDITjvw=
+
+Name: com/sap/adt/communication/content/IContentHandlingFactory.class
+SHA-256-Digest: KkVS7oyI3nMZjtpk7/99gSGAD4P2ap14DK8L9NQnkuA=
+
+Name: com/sap/adt/communication/message/IResponse.class
+SHA-256-Digest: 2oV/ShcbncrzOwrvivl0udv59iK/N5DKpZN559FjkXI=
+
+Name: com/sap/adt/communication/internal/content/plaintext/PlainTextPo
+ sition.class
+SHA-256-Digest: 5za5MW/KzDf2/F6TyI66NgzMxc8VrY2Rev6IISSs2JM=
+
+Name: com/sap/adt/communication/IAdtCommunicationFrameworkPlugin.class
+SHA-256-Digest: pcE8WC6KhEyUm3m1btkG8rbD3H9rElS4SOIFsHguA28=
+
+Name: com/sap/adt/communication/destinations/AdtDestinationRegistryFac
+ tory.class
+SHA-256-Digest: VGtdwUW+c1bsToZsDNtoH1QnRdbnMUuP0LwZ59v0k6M=
+
+Name: com/sap/adt/communication/internal/session/SystemSessionFactory$
+ 1.class
+SHA-256-Digest: nTxDww11Zvaii2EkT1A57O8cWPAoOo25I5D5SEha9kc=
+
+Name: com/sap/adt/communication/internal/jco/session/StatelessSystemSe
+ ssion.class
+SHA-256-Digest: rV8JQjWaX1Idh+iE3GTk0AplFKmGC2tbiTvyK2JZwoU=
+
+Name: com/sap/adt/communication/util/CancelableBlockingJob$BlockingJob
+ .class
+SHA-256-Digest: TSTutiW2swicjIynd5eW0VqtKuOSKzz2LR1FA5YkKJU=
+
+Name: com/sap/adt/communication/message/IRestRequest.class
+SHA-256-Digest: 9aex3/JCEtVPWAwK/o0TojNPdh5LWz85dZpI7kzg8vs=
+
+Name: com/sap/adt/communication/internal/jco/IJCoPasswordProvider.clas
+ s
+SHA-256-Digest: HiiFc/5bqvkwdaQd69am0PLodPwD3yEnob5GoHI2bMQ=
+
+Name: com/sap/adt/communication/exceptions/CommunicationException.clas
+ s
+SHA-256-Digest: 7WubAqO5B0N5otFrpFdgw9FIsP8ziBYdzmJD3V2V9gw=
+
+Name: com/sap/adt/communication/internal/notification/SessionNotificat
+ ionManager$ContributedListenerProxy.class
+SHA-256-Digest: 4JcapjUan431xVFZ8a8uvdi3dHEBkJVyvJ9S4PhO/a4=
+
+Name: com/sap/adt/communication/content/asx/IAsxData.class
+SHA-256-Digest: cYlZLUYZmHLCZerZhLQaSJqCpa/je8AqgWRF7AE9xpA=
+
+Name: com/sap/adt/communication/internal/testaccess/testspy/TestSpyFor
+ StubRestResourceCalls$WritableCallInformation.class
+SHA-256-Digest: +F4+QMQuBlTdGcbQGDrH/BYxtwHvQ1nenlaR+Sb0z68=
+
+Name: com/sap/adt/communication/http/internal/api/IHttpDestinationRegi
+ stry.class
+SHA-256-Digest: 8CZnCsVuwOTNsJRqm/dJAnEY3qOWa40rQIam6f+Ee7Y=
+
+Name: com/sap/adt/communication/internal/jco/util/JCoFunctionBuilder$S
+ tructureBuilder.class
+SHA-256-Digest: MEgeJf6jLpmvHTa1+kFGEupxjQVQM2P4RM1DgLJXTSc=
+
+Name: com/sap/adt/communication/internal/jco/dispatcher/JCoFunctionExe
+ cutor$Context.class
+SHA-256-Digest: u+IIU0XY+pLnrmmfXMshD6ZAjNQJSId/HOg+gf5Ag3Q=
+
+Name: com/sap/adt/communication/jco/ms/IJCoMessageServerAdapter.class
+SHA-256-Digest: TxrGm0Ne8GcN4SqclNrUcBeo4V1Dr9hM+H0VUqKim3A=
+
+Name: com/sap/adt/communication/internal/resources/RestResourceFactory
+ .class
+SHA-256-Digest: 12qrH5c6/KoqnY0bx3OHUNQzuVzid681F6py4PyMspM=
+
+Name: com/sap/adt/communication/resources/ResourceMethodNotAllowedExce
+ ption.class
+SHA-256-Digest: VgVpkteeKpgzddFqimSlogLKU7ndpxyLht4riS35j6I=
+
+Name: com/sap/adt/communication/util/CancelableBlockingJob$BlockingJob
+ $1.class
+SHA-256-Digest: gI5cNtQiUKI1rGqtmwc+w9gjxifGL/3CVrulCyH08mg=
+
+Name: com/sap/adt/communication/log/ICommunicationLog.class
+SHA-256-Digest: Ft1gOIJSsGi+mnRsomiIbvTSPNDVgC90728eLsvSne4=
+
+Name: com/sap/adt/communication/internal/content/ContentHandlerResolve
+ rChain.class
+SHA-256-Digest: hkDmuoAd2Ggiwqpa5bDPpcsNNnAWLm7HlLwvK8JfLGg=
+
+Name: com/sap/adt/communication/internal/content/exceptions/ExceptionX
+ mlParser.class
+SHA-256-Digest: HriTGJBESwF2Tom54YlBjospZJxkoqFXxdpdNRWPrwE=
+
+Name: com/sap/adt/communication/internal/Activator.class
+SHA-256-Digest: jcqnCGTQxRtuQNeC1h9/q/5cJlb27eEkXxZnLMUYE3s=
+
+Name: com/sap/adt/communication/message/IRestRequestFactory.class
+SHA-256-Digest: 9O6RgMKC8gvYxeua7Q60OEbcNpk8+qz6vQacotcnTog=
+
+Name: com/sap/adt/communication/internal/session/SystemSessionFactory.
+ class
+SHA-256-Digest: /kX/Qteq2V1MNoafWq1unykNTYDlclENCUq1YtG0+tA=
+
+Name: com/sap/adt/communication/util/FileUtils.class
+SHA-256-Digest: XpF/ep+QnUbb0Oo6dWLUwYIC932NLbWvF6cZQyV5BPw=
+
+Name: com/sap/adt/communication/internal/CommunicationPreferenceInitia
+ lizer.class
+SHA-256-Digest: n2EaP2yIdNPCf8og15VJuqyl79jvYR1YkwuWjWCEcvQ=
+
+Name: com/sap/adt/communication/internal/jco/session/EnqueueSystemSess
+ ion.class
+SHA-256-Digest: vCI2bsXqnrOsUfUGPbpXJIRAL1shhiKOlZimZHj9y3Q=
+
+Name: com/sap/adt/communication/internal/log/CommunicationLogProvider.
+ class
+SHA-256-Digest: MlkM2AQh7gXM+tLM+59lAV6Dhf0/7go9+Dyq6MFjV6o=
+
+Name: com/sap/adt/communication/exceptions/OutOfSessionsException.clas
+ s
+SHA-256-Digest: XjJa6wcgKzAsfV3bP8x/8sSOMyuQtBwC2m/g1iTqhCk=
+
+Name: com/sap/adt/communication/internal/testaccess/RestResourceOperat
+ ion$RestResourceOperationEnum.class
+SHA-256-Digest: 68WN0k18G6ss3AGoUjn1jpydlVSVUCvlh6UBDJmIbFE=
+
+Name: com/sap/adt/communication/resources/IRestResourceFactoryTestAcce
+ ss.class
+SHA-256-Digest: YQ4XzS2fd9UJ6x7G6oW1mlWd5zJHhKfFFF4tbuvak5s=
+
+Name: com/sap/adt/communication/internal/content/exceptions/ExceptionD
+ ata$Message.class
+SHA-256-Digest: gBAY8EV7pqTNhSg3dPZYUHP1NbnBXwokHwdRD0xZF+4=
+
+Name: com/sap/adt/communication/content/plaintext/IPlainTextContentHan
+ dler.class
+SHA-256-Digest: EOe0Us3C6lpfan9xExk8M2pfchw3njdDENo1adfkhXE=
+
+Name: com/sap/adt/communication/internal/session/SystemSessionFactory$
+ ISessionCounter.class
+SHA-256-Digest: dCp1PVA6c868AfMuqDnL23ssVFGo5QcJZWjf1cpM9l0=
+
+Name: com/sap/adt/communication/internal/content/ContentHandlerRegistr
+ y.class
+SHA-256-Digest: GoEWilvi+43L7hWXEXyl1urhv+dokeNj9nq4jG5h1oQ=
+
+Name: com/sap/adt/communication/internal/session/SystemSessionFactory$
+ SessionCounter.class
+SHA-256-Digest: RIK9dMUQp/ywkfihVrqb+kFKC722Yx49CvtMCI7R7lQ=
+
+Name: com/sap/adt/communication/message/HeadersFactory.class
+SHA-256-Digest: TqOOMIxm9QFOZ5QWQ8nt71XiXOWIeLASngPVIBTd2no=
+
+Name: com/sap/adt/communication/internal/jco/session/IJCoSystemSession
+ .class
+SHA-256-Digest: gaNmzINzea3lUgDXpMwDXBof3SUlkR6ng6fNHcQUZ9A=
+
+Name: com/sap/adt/communication/internal/content/plaintext/SourceSeman
+ ticFragmentHandler$AdtUriSyntaxException.class
+SHA-256-Digest: inXcfLFUlbx/vcMs3h5xdz91YdSZFqL3Yc4zbGoMadM=
+
+Name: com/sap/adt/communication/content/htmltext/package-info.class
+SHA-256-Digest: ezXt0I8uPqDi+dHMLkVXhzaqbOxMXrfzcXCbaSxICfw=
+
+Name: com/sap/adt/communication/internal/testaccess/testspy/NullTestSp
+ yForStubRestResourceCalls$NullWritableCallInformation.class
+SHA-256-Digest: ADbBsqGWL+kMrWhmlsXdlX4ZP2GrdxwaElb0iUvi/Zk=
+
+Name: com/sap/adt/communication/content/htmltext/IHtmlTextContentHandl
+ er.class
+SHA-256-Digest: N+wI8qDhSUgnKm8M1kVPq+aa6aNOmywdd1KbAYD/mcs=
+
+Name: com/sap/adt/communication/content/asx/IAsxDataSet.class
+SHA-256-Digest: SvV0bB3N5lsdPnUrBB+GL04InyIbmrwon1mBotT3b6A=
+
+Name: com/sap/adt/communication/ICommunicationFrameworkFactory.class
+SHA-256-Digest: 9H4433y744C+j5QG2vT3BGA9Z8DlbqhKjqwPtxQlt04=
+
+Name: com/sap/adt/communication/internal/content/exceptions/ExceptionD
+ ata.class
+SHA-256-Digest: LlRlT/13w5QNYuDla0/4ZLeKqwOiUA/T4vzvl3pCwqI=
+
+Name: com/sap/adt/communication/log/package-info.class
+SHA-256-Digest: /Z8hYCCmkf+W9iSqYVe7BY+8CwzoA6txFRA9giFPqUk=
+
+Name: com/sap/adt/communication/destinations/ApplicationServerConnecti
+ onAttributes.class
+SHA-256-Digest: 2tYU37KR5Q6hHAUjlecLX9+obZbYp3dvA8jhQp67SbU=
+
+Name: com/sap/adt/communication/internal/exceptions/BackendNotAdtEnabl
+ edException.class
+SHA-256-Digest: QLy8ql+qiFV/iG4x+sxvePpVwjmsUxwJ0A0U9k9P5E4=
+
+Name: com/sap/adt/communication/message/HeadersFactory$1.class
+SHA-256-Digest: DrU9GBxDdb7ooV0zdp+Mx6dvS7m+31G07m3kFpqkcgw=
+
+Name: com/sap/adt/communication/notification/package-info.class
+SHA-256-Digest: x0R/eYxHKM57NXS2jZAWzclSQOPFc1Zg1mWrwuLbIMM=
+
+Name: com/sap/adt/communication/resources/ResourceCharactersNotAccepte
+ dException.class
+SHA-256-Digest: jLwOR2OFfuaTLnuGh/WwGoqLcrVKcCB1ie6dq6j4vPA=
+
+Name: com/sap/adt/communication/util/CancelableBlockingJob.class
+SHA-256-Digest: qspFTHIQi04/1Tj8HMOGbfRFVi8JD9HTzxn5n/2Pcvk=
+
+Name: com/sap/adt/communication/resources/ResourceForbiddenException.c
+ lass
+SHA-256-Digest: gXSO3MfdSiapvj0j80GsxLW/En8ZM11YBLNhAYpjXHg=
+
+Name: com/sap/adt/communication/resources/UriBuilder.class
+SHA-256-Digest: 8KNOphXeBS3aZfY4WqyoUh9Msk0lLY4Cc3iPCyoApzk=
+
+Name: com/sap/adt/communication/content/atom/AbstractFeedContentHandle
+ r$FeedContentHandlerException.class
+SHA-256-Digest: dZyG3vWcMqW2Yauy48fdLT2woOubYslNlw6koMoHUWs=
+
+Name: com/sap/adt/communication/internal/jco/util/JCoBase64UtilImpl.cl
+ ass
+SHA-256-Digest: NCEBZKBaGVFdL1WdGYbtnT1qNJXJjtAi4rGGDLO4Obw=
+
+Name: com/sap/adt/communication/resources/AbstractRestResourceResponse
+ FilterAdapter.class
+SHA-256-Digest: GrG02af+wxdNYiZScB4l1vD8zntkkhA1h9Y5skU+wfw=
+
+Name: com/sap/adt/communication/content/asx/IAsxDataFactory.class
+SHA-256-Digest: aYKvi4AwDp760el3Yf2QH4ul9V1eqz0JQO7+yBhGjC8=
+
+Name: com/sap/adt/communication/internal/UserAgentUtil.class
+SHA-256-Digest: +Jl04mAnM9ISa19gG45XiOejvS0sPxnQgPZncyBOz9Y=
+
+Name: com/sap/adt/communication/internal/exceptions/ContentLengthExcee
+ dedException.class
+SHA-256-Digest: ZXBjHhXGl+5GmWey+6qYv91003/BlN8WZxmrII7MFGE=
+
+Name: com/sap/adt/communication/internal/StringUtils.class
+SHA-256-Digest: gStLci+RgbFir5pecubAJKq+N8dfhk5KaO/fshxNVEQ=
+
+Name: com/sap/adt/communication/message/IHeaders.class
+SHA-256-Digest: 2CfwJRb7ys+SBD7kdDeQxgyoBfn9PIoAeTV7pZw4o8o=
+
+Name: com/sap/adt/communication/internal/jco/messages.properties
+SHA-256-Digest: D5MAw8og99hZNfnNjGKWsiCNn2Rm3SOvUA1AtiM9oO8=
+
+Name: com/sap/adt/communication/resources/ResourceException.class
+SHA-256-Digest: vpHWa/bpCv3cH26izIMlcTmjgACo4NHCBaJiJSfyM8k=
+
+Name: com/sap/adt/communication/internal/jco/util/JCoFunctionBuilder.c
+ lass
+SHA-256-Digest: bt2yJQ1gO5USxYaXWtl0YYRWHzVosoZXkqEJIcYisyQ=
+
+Name: com/sap/adt/communication/internal/session/SystemSession.class
+SHA-256-Digest: TAW5Im6vN2YWtV5x+iEDTLa74y4dP40U6/gfhZzq0jc=
+
+Name: com/sap/adt/communication/internal/content/asx/ComplexAsxDataSet
+ .class
+SHA-256-Digest: tsKScvLoc6wl4xSffYdj+mgyc0ObC4YxPjb+HZMUIdU=
+
+Name: com/sap/adt/communication/internal/jco/ms/JCoMessageServerDataPr
+ ovider.class
+SHA-256-Digest: dEhF/xJOmG10vScoAFxvZCjYTc/F1Chi21p5JidnMyE=
+
+Name: com/sap/adt/communication/internal/resources/ImmutableHeaders$Im
+ mutableField.class
+SHA-256-Digest: MRkPKMAYVAJlzWgnhSikoji/6KcbO+Tv/Wl2F7kgEtw=
+
+Name: com/sap/adt/communication/session/IStatelessSystemSession.class
+SHA-256-Digest: x80EmmezzOC78iPsneaaFeHdMToh6WPOEAg06+WmLVo=
+
+Name: com/sap/adt/communication/internal/resources/RestResourceRespons
+ eContext.class
+SHA-256-Digest: accIPPvbQ7FmPj/Hg0L3Z+kico8QNw3qKOUSZpfl9qM=
+
+Name: com/sap/adt/communication/internal/jco/IJCoDestinationManagerPro
+ xy.class
+SHA-256-Digest: S2yOllrmnRyGLLhNgXeoER2ZaqNvGOo4LFzPIjWJ7UA=
+
+Name: com/sap/adt/communication/session/AdtSystemSessionFactory.class
+SHA-256-Digest: /2eno/DyryEvjtq+pNRO72PuCc7msZbiQDUt2xrJG0Q=
+
+Name: com/sap/adt/communication/internal/notification/SessionNotificat
+ ionManager$1.class
+SHA-256-Digest: fztb8CBnRoFB03CGI3NpEhhUqGFKxyM4vsbxenUcUyk=
+
+Name: com/sap/adt/communication/debug/IDebugId.class
+SHA-256-Digest: 9JPpUinoAINkuYTOHlP1zAtJ47d1v0IWe8U9DwtQ5Xg=
+
+Name: com/sap/adt/communication/internal/content/asx/AbstractAsxDataSe
+ t.class
+SHA-256-Digest: yJajXxhvAoQIf+HZEfwRpXgPGu8TVqEtM4+k/ctnRbY=
+
+Name: com/sap/adt/communication/internal/log/LoggingCommunicationListe
+ ner.class
+SHA-256-Digest: YkxDTy/PRAcqWBEdSjDmxBbGcD6xF///dnjy4ekCI8s=
+
+Name: com/sap/adt/communication/exceptions/IExceptionData$IMessage.cla
+ ss
+SHA-256-Digest: PB8EURvEDb6ndRLBZjbyr7DVwsQXHdHv2MAQCQccBFY=
+
+Name: com/sap/adt/communication/internal/jco/dispatcher/JCoFunctionExe
+ cutor$1.class
+SHA-256-Digest: gAFtB0EusVbEgqLOKMIB5UrX0dh1VUXkF+37lpxum2E=
+
+Name: com/sap/adt/communication/content/AdtMediaType.class
+SHA-256-Digest: 55UXiCPH20UHYJPAGsaXnLY7FgivvbGwMab5tBstp1I=
+
+Name: com/sap/adt/communication/IAdtCommunicationDelayStrategy.class
+SHA-256-Digest: 7mG8np0rsSOw42y/Yk3UDztjG0BxRtwlpSF31A0io/w=
+
+Name: com/sap/adt/communication/internal/message/AbstractResponse.clas
+ s
+SHA-256-Digest: Q4p0/Sy1OhDMcuYyCJ90O2fZPdy35RCkn7OZvzOxJPQ=
+
+Name: com/sap/adt/communication/message/IHeaders$RfcDateFormat.class
+SHA-256-Digest: 0Fmg4/1Du2L1UBuFtygmBOtOzzM08/sZvh6pKnVB3H4=
+
+Name: com/sap/adt/communication/internal/jco/dispatcher/JCoRequestDisp
+ atcher.class
+SHA-256-Digest: RLKElV6XKNTEZjrWxim+nw+N7g07NpO6Uj0u0QHQnaU=
+
+Name: com/sap/adt/communication/exceptions/SystemFailureException.clas
+ s
+SHA-256-Digest: ilidPwuOWa/I2TLp8uEQ2rsYc8aZIIV8aPssq4gizgw=
+
+Name: com/sap/adt/communication/internal/log/IXmlConstants.class
+SHA-256-Digest: gxb2pblfJIsWVVnGvOMwHZA96SCN4Y/zezWWuDHNUgM=
+
+Name: com/sap/adt/communication/internal/content/ContentHandlerRegistr
+ yBuilder.class
+SHA-256-Digest: kRwUb/1nkAjG7vHyhs0QWtE/R/LGd4VcHm7Gsjftsgk=
+
+Name: com/sap/adt/communication/content/atom/AbstractFeedContentHandle
+ r.class
+SHA-256-Digest: G1lfuWv+FJ2kRr0lx6Ol8C4OXKHEPFO7U+FqTsrHei4=
+
+Name: com/sap/adt/communication/internal/content/ContentHandlerNotFoun
+ dException.class
+SHA-256-Digest: W9ufQ0dBDbraHm4FjOxokWpFISSPFKFkKYxxGpd4sgw=
+
+Name: com/sap/adt/communication/content/asx/package-info.class
+SHA-256-Digest: HDOs7EdTDvfFKsp9Uo498nMOseLXb5g/rllGZx6T4vU=
+
+Name: com/sap/adt/communication/internal/jco/session/JCoSession$Mode.c
+ lass
+SHA-256-Digest: dfHm+s5btCGavlfcDnUBe6n+1vz/FY+CjdE7pOXVwrs=
+
+Name: META-INF/maven/com.sap.adt.fwk.ci/com.sap.adt.communication/pom.
+ xml
+SHA-256-Digest: HcbSkGXY1di7OFE3Mz5xsQKFsFtyuSM+CUBnY8Ws21k=
+
+Name: com/sap/adt/communication/internal/testaccess/ResourceExceptionF
+ actoryForTest.class
+SHA-256-Digest: 2xmMLfUWYD6t+BJzO1caBPYfZ1U7xqLrSI8yw/WdEdM=
+
+Name: com/sap/adt/communication/internal/jco/dispatcher/IJCoRequestDis
+ patcherProtocolStrategy.class
+SHA-256-Digest: Zr5avjH/IX2VQ1zET21pcQtjkcJEjdUqK+q3MsCmeKg=
+
+Name: com/sap/adt/communication/internal/jco/dispatcher/JCoRequestDisp
+ atcherFactory.class
+SHA-256-Digest: Km/Ib9yZ6vNfAGBsReTJgeYo+EExhZqfTK+W6jW+mHQ=
+
+Name: com/sap/adt/communication/message/AbstractMessageBody.class
+SHA-256-Digest: TkOD9VMDIWkcHY4ntc7zuAK0FUfO5e0HBKSwcnImD8o=
+
+Name: com/sap/adt/communication/resources/IUriBuilder.class
+SHA-256-Digest: WNAmR3LUYUvoXnbwJGLvmPck4SCsN53664PtXqlrF1o=
+
+Name: com/sap/adt/communication/internal/resources/RestResource.class
+SHA-256-Digest: WDadZDKtZAht/gis9Y46nhbePOlqQhGMiDFCKG0VKKM=
+
+Name: com/sap/adt/communication/internal/notification/SessionNotificat
+ ionManager$ContributedListenerProxy$1.class
+SHA-256-Digest: YLLrlgeXXN0DJ8ubrM5s0us4Je8P9N+Zc1AJ2Bt+ruY=
+
+Name: com/sap/adt/communication/resources/QueryParameter.class
+SHA-256-Digest: fuLGJH33lLAhr68rnrKxr7wHblvEavauMWi5CSwcfXk=
+
+Name: com/sap/adt/communication/message/IMessageBody.class
+SHA-256-Digest: PPy74BNXefFTonRAisBaEhypC+Cte6VnBe2aID7Eb8s=
+
+Name: com/sap/adt/communication/message/IRequestFactory.class
+SHA-256-Digest: iCToqTwjrQBVA5bmG3iZBkCaFNu4DtCLHYuM3fRuKcE=
+
+Name: com/sap/adt/communication/internal/content/plaintext/PlainTextFr
+ agmentHandler$AdtUriSyntaxException.class
+SHA-256-Digest: Y1mmZBh3mIWIIOHppDAmfnTL1D1VT2ZgoxeM2de4FhQ=
+
+Name: com/sap/adt/communication/destinations/IDestinationRegistryChang
+ eEvent$KIND.class
+SHA-256-Digest: 35nKNwPn82yRFtX8mPHkGW27SMWCoJ2DR6GCiQn4i/A=
+
+Name: com/sap/adt/communication/internal/content/asx/AsxXmlGenerator.c
+ lass
+SHA-256-Digest: fpZRxg549kDQoI20dKIq5C75i3QWlBw2idqNia9qJi8=
+
+Name: com/sap/adt/communication/resources/IRestResponseContext.class
+SHA-256-Digest: MVCb/SSQc7lT6Jv+JjexUBsz0who98xR1ygN6EE2z/g=
+
+Name: com/sap/adt/communication/message/IMessage.class
+SHA-256-Digest: imUHQmEebKTyNpumrFJJM7sXdHPOsvTacxdKFG5etQ0=
+
+Name: com/sap/adt/communication/session/IStatefulSystemSession.class
+SHA-256-Digest: EEb5XO5mm8eoOddat1e+KbKvBLIwyr7vgUczH4ZiS3o=
+
+Name: com/sap/adt/communication/internal/testaccess/RestResourceStub.c
+ lass
+SHA-256-Digest: MNWOf1eb8GRRlrwqals/SbvTxwXALYOAtpixq7evf4A=
+
+Name: com/sap/adt/communication/AdtCommunicationFrameworkPlugin.class
+SHA-256-Digest: TgdjBjBKnsCFqC91/qupxUOQHuQ6Fz3AhH3fh/NkcbA=
+
+Name: com/sap/adt/communication/message/IHeaders$IField.class
+SHA-256-Digest: JJX9ZdiEWfEexVTYW7lIRX0AK9ggYvPVtjCW2WLLv8I=
+
+Name: com/sap/adt/communication/exceptions/LogonFailedException.class
+SHA-256-Digest: OsazokXHtrEvDpOjVqbsNC0N51NYSsfrGlfT15eKiSo=
+
+Name: com/sap/adt/communication/content/plaintext/IPlainTextFragmentHa
+ ndler.class
+SHA-256-Digest: iVwXzhcmJFFanjgUKuhytyA/OZLUmbIXA31hR1V8Dw4=
+
+Name: com/sap/adt/communication/internal/content/exceptions/ExceptionC
+ ontentHandler.class
+SHA-256-Digest: x9l2PbINioUPXIagFABtPCJziN796JFaabUGfJMA2LU=
+
+Name: com/sap/adt/communication/message/InputStreamMessageBody.class
+SHA-256-Digest: cH98cUhh29dfEsxt2t5mQ4p/I4pWrJGssWCgKLycGv8=
+
+Name: com/sap/adt/communication/internal/message/AbstractMessage.class
+SHA-256-Digest: dtwmBZCeQZFQ1DR9W3gsZHjoW0CqGaH4JLcCRoxdspQ=
+
+Name: com/sap/adt/communication/internal/content/plaintext/SourceSeman
+ ticPosition.class
+SHA-256-Digest: RHJPGQ9K7S+ggqYDs20tKk0N9ODMupeBVg0JMLTqDHo=
+
+Name: com/sap/adt/communication/internal/testaccess/ContentHandlingFac
+ toryForTest.class
+SHA-256-Digest: h7lFBPIVDdJIoHE3ze7iDIdQ9xWEsIV5qK5dgCEuysc=
+
+Name: com/sap/adt/communication/util/DateUtil.class
+SHA-256-Digest: Ux8FHd7BMu18VBkxBfsuQNeGk2h1wtqSajCEJ8MjFUA=
+
+Name: com/sap/adt/communication/exceptions/LogonException.class
+SHA-256-Digest: mr9dq8wDGYrPGXsxisQzlcpJoVHeG76/hkljRsIWfTU=
+
+Name: com/sap/adt/communication/internal/jco/JCoDestinationRegistry.cl
+ ass
+SHA-256-Digest: gP9K05G+4XNOiIGjEPJXftzeUi81evnzwW6HyUSlhW8=
+
+Name: com/sap/adt/communication/resources/ResourceBadRequestException.
+ class
+SHA-256-Digest: s/PwSIEFC5nESjYaKL/bFFLB5EqvOZ9jEhYbS2AuZ/I=
+
+Name: com/sap/adt/communication/package-info.class
+SHA-256-Digest: s2iTPXUgdvRBJUD442g0FQx8JTIenCGkM11WElf2eRs=
+
+Name: com/sap/adt/communication/internal/content/plaintext/SourceSeman
+ ticFragmentHandler.class
+SHA-256-Digest: S9N64QgQofF1LyfhcGpm0v61APfOtzOf2nnpNi3WUuo=
+
+Name: com/sap/adt/communication/internal/jco/ms/JCoLogonGroupAdapter.c
+ lass
+SHA-256-Digest: IkAdvKs9xO1lXY3cdPVTQYOVKZvvqOHDW5OP4hKpk1A=
+
+Name: com/sap/adt/communication/internal/jco/JCoDestinationRegistry$1.
+ class
+SHA-256-Digest: sFrSX+JlENWck69gE9kuONSnWv8hHDPJKMCEkfFCsKI=
+
+Name: com/sap/adt/communication/notification/AdtCommunicationListenerA
+ dapter.class
+SHA-256-Digest: B5kqXyWkxaSXe7yyXCrP1hrcKPPw0Hxd3QYyvy0WQHg=
+
+Name: com/sap/adt/communication/content/IContentHandlingService.class
+SHA-256-Digest: AKVzrpP1c9Z7ZmMd/6JN0xXiK6DzNOm1fdM79aTwldU=
+
+Name: com/sap/adt/communication/content/asx/IAsxDataSerializer.class
+SHA-256-Digest: VX/moOnoto+L1+NHGmPWguvxqUxK1lw2MYR7eUz36Gw=
+
+Name: com/sap/adt/communication/internal/notification/ISessionNotifica
+ tionManager$NotifyCycleStartedParameter_Temp.class
+SHA-256-Digest: pJmzR/N1chK2NrwcfOuRtgjIFJS2l71tXSobOImi/EM=
+
+Name: com/sap/adt/communication/resources/IRestResourceResponseFilter.
+ class
+SHA-256-Digest: bTdkuFULoCiLdqo1xT+KCfBapW1dlv9srDlYo2TnMBk=
+
+Name: com/sap/adt/communication/internal/jco/Messages.class
+SHA-256-Digest: 0HKC82bkurpQkC9OJ9Re1f74dQEHgnJVVQMy50nftwg=
+
+Name: com/sap/adt/communication/internal/CommunicationFrameworkFactory
+ .class
+SHA-256-Digest: iHpBuhT+e7xarAC8BNqLCp0x3EZKHtcIAgzfhhGKsh4=
+
+Name: com/sap/adt/communication/session/IEnqueueSystemSession.class
+SHA-256-Digest: /i3uMagvauPASOseOQ/JbrsPeFu2ki22cwt/Z7iLHnU=
+
+Name: com/sap/adt/communication/content/asx/IAsxDataSetList.class
+SHA-256-Digest: RDHyLuA6X4mYvOJHXY1OqkZBGnXQyivpHalfmme49mc=
+
+Name: com/sap/adt/communication/internal/content/asx/AsxSaxHandler$Tag
+ StackEntry.class
+SHA-256-Digest: f10g/U+zLcFf/4roQb427g5IY4Xx8PhcyufTzh9sVok=
+
+Name: com/sap/adt/communication/internal/jco/JCoDestinationRegistry$JC
+ oDestinationRegistryChangeEvent.class
+SHA-256-Digest: R6xeXbIShTtzidAi5th3uMRUON8gQ5hGu06uyqSEDpI=
+
+Name: com/sap/adt/communication/internal/testaccess/testspy/TestSpyFor
+ StubRestResourceCalls.class
+SHA-256-Digest: sYmNAjOaZYwhvPOM7kfBqg+FDCyfY1qMpqMZT+//3MA=
+
+Name: com/sap/adt/communication/debug/DebugMode.class
+SHA-256-Digest: r/cynDBoqUdSd9rG2mVZFm1VTrmWI8cSYH3URS5SWfc=
+
+Name: com/sap/adt/communication/destinations/package-info.class
+SHA-256-Digest: MpuroxqaUWBwmRkljoZKtV3nyyc/MAlUgR0+KVcd2q4=
+
+Name: com/sap/adt/communication/jco/ms/AdtJCoMessageServerFactory.clas
+ s
+SHA-256-Digest: UzjPMLe6pBCVQS6KINCUxRQrElxF8V13mc0E9ViZ0JE=
+
+Name: com/sap/adt/communication/internal/messages/messages.properties
+SHA-256-Digest: Y+OhK859G1UbyWkQH5OdCYbcOYAgNrCtLg4b5jwMOyU=
+
+Name: com/sap/adt/communication/internal/notification/ISessionNotifica
+ tionManager.class
+SHA-256-Digest: EY5Zt10cG48KaMml2CLHAU+EGVyBG7Gva0lZAwc6ShY=
+
+Name: com/sap/adt/communication/resources/UriParser.class
+SHA-256-Digest: jReFza/LAFZHdk6C+rr9DmYU3wekHir7tSifq5JDX00=
+
+Name: com/sap/adt/communication/internal/resources/ImmutableHeaders.cl
+ ass
+SHA-256-Digest: 4GWtpLPL25L7fVC6eMtmrzCvmXcmHPp1JIwk9mWFptI=
+
+Name: com/sap/adt/communication/internal/content/ContentHandlingFactor
+ y.class
+SHA-256-Digest: va3jd4vCGuMa83/I6XxuLAcgK7yWrN87/ltTn7tZ8vE=
+
+Name: com/sap/adt/communication/internal/jco/session/IJCoSessionManage
+ mentProxy.class
+SHA-256-Digest: baKJfeQFE8u1ffOdOhSBCbosPziymp0aIwzIHoOG4Ns=
+
+Name: com/sap/adt/communication/resources/ResourceNotAcceptableExcepti
+ on.class
+SHA-256-Digest: 3v30Msb6+/ZQLjmL7dJPnAqGV54TlsEPgwLhEVf3PVQ=
+
+Name: com/sap/adt/communication/internal/jco/dispatcher/JCoFunctionExe
+ cutor$AdtPassportManager.class
+SHA-256-Digest: CKs3vJz5WNFLofvtk59hJ0AkkcmplPQfbGY0AfQva4g=
+
+Name: com/sap/adt/communication/content/IContentHandlerResolver.class
+SHA-256-Digest: wRwTIDLWNg3Qgy9e/joHOllkbS2ofhnv7GyHUK8EdwI=
+
+Name: com/sap/adt/communication/internal/jco/session/IJCoSession.class
+SHA-256-Digest: aE+hrZ7dC666c2+MLXOl4qnMRJMlL1ubhb4+ZCnOUps=
+
+Name: com/sap/adt/communication/destinations/IDestinationRegistryChang
+ eEvent.class
+SHA-256-Digest: MTLhN/zME3KMYOcsIjIjQcLE2En5w/ZYB9HpOPquqZU=
+
+Name: com/sap/adt/communication/exceptions/CommunicationFrameworkExcep
+ tion.class
+SHA-256-Digest: WgmY28nlLGXsF7vHy89tloCZm7SgErduLF+uuA8GScA=
+
+Name: com/sap/adt/communication/content/exceptions/IExceptionContentHa
+ ndler.class
+SHA-256-Digest: uCW2XIGrIt/pGmM94+sGbnqPaCD31xeDEW6Fx2BLaVI=
+
+Name: com/sap/adt/communication/internal/testaccess/TestSpyForStubRest
+ ResourceCallsFactory.class
+SHA-256-Digest: ++j6sLhmoyDp5ffKxJDg3CM0E1rv6ut/61mfsm5sqd8=
+
+Name: com/sap/adt/communication/internal/testaccess/testspy/NullTestSp
+ yForStubRestResourceCalls.class
+SHA-256-Digest: qZlibrZKBijKJ3Zzo91z/UJLJxgFOqasQhhursufT74=
+
+Name: com/sap/adt/communication/message/IResponseFactory.class
+SHA-256-Digest: zPKGLR6Ms3ygI75XVrix77f2OMfa0zFsmuFHsK/MxuU=
+
+Name: com/sap/adt/communication/internal/exceptions/ClosedStatefulConn
+ ectionException.class
+SHA-256-Digest: zOcUY5XRJl0SvZ8iDwPaVpTj8t8GcQoI3kAI7xBB8nE=
+
+Name: com/sap/adt/communication/internal/testaccess/RestResourceOperat
+ ion.class
+SHA-256-Digest: we6Q8v0Y5P0W6rUxyWWnEkYxRP+ev69wgyj1FyJoElc=
+
+Name: com/sap/adt/communication/log/ICommunicationLogListener.class
+SHA-256-Digest: aONX5DNmLKP3ge/+Qyq2tf3WaOZW1iIVqng6n7pT6h8=
+
+Name: com/sap/adt/communication/session/ISystemSession.class
+SHA-256-Digest: quoW9kaAj7XbM2qKOaCAkU3gbe9YVpqmCZePECORkUA=
+
+Name: com/sap/adt/communication/jco/ms/IJCoLogonGroupAdapter.class
+SHA-256-Digest: KamtV3AcPwtt7XUHuVjs8K07ZJ7LH40U/Ccj9d0W1LY=
+
+Name: com/sap/adt/communication/jco/ms/IJCoApplicationServerAdapter.cl
+ ass
+SHA-256-Digest: FMWaduAomgr854UwweACRcGp1PWEymm7RTQsuk4PQrg=
+
+Name: com/sap/adt/communication/internal/message/AbstractResponse$Erro
+ rInfo.class
+SHA-256-Digest: 3FZMcbNpMYrWOhwLnw4XGQf0hBvUib/3MiE8wyxdxtk=
+
+Name: com/sap/adt/communication/internal/jco/session/JCoSystemSessionF
+ actory.class
+SHA-256-Digest: fC2ktDIvoXs8ajFN7ZupzwcSqZxVtMnR5+M/E2Z3AX8=
+
+Name: com/sap/adt/communication/resources/ResourceFilterException.clas
+ s
+SHA-256-Digest: Q3l5hS0W7hyo9SemOocXgojy1ZuW9WH/xokza1eNba8=
+
+Name: com/sap/adt/communication/notification/ICommunicationCycleData.c
+ lass
+SHA-256-Digest: qB4VxBMbV+hm7A6jKPBg3WSyXpLB8QsODutWVQFOjBI=
+
+Name: com/sap/adt/communication/internal/jco/session/DefaultJCoSession
+ ManagementProxy.class
+SHA-256-Digest: 88XZJ/YZrc444VNTOO3YONtAxCVmKmkw7eW6ppGPyfc=
+
+Name: com/sap/adt/communication/internal/content/plaintext/PlainTextFr
+ agmentHandler.class
+SHA-256-Digest: WGe5+UaN/8aNKlVI57ixe2881+aA/Pa46/MpHIc/Iyc=
+
+Name: com/sap/adt/communication/resources/ResourceNotFoundException.cl
+ ass
+SHA-256-Digest: AToHbunciA6ZnC0sctTx1K3sncouI8SY3xr9aqG19P0=
+
+Name: com/sap/adt/communication/message/AdtRequestFactory.class
+SHA-256-Digest: bogfxkBDALHfRDZlHnnLB+WVkwymvP7+J2MAsev2Pk8=
+
+Name: com/sap/adt/communication/content/plaintext/ISourceSemanticFragm
+ entHandler.class
+SHA-256-Digest: fv2sLd8StqCZ+pJSgBKezIdfrXvYbhzPhGYgTRBhnGU=
+
+Name: com/sap/adt/communication/content/package-info.class
+SHA-256-Digest: /xNZ3B8DxSjsGMTC7IYn9rgYiB7tv+6C/vQANuD2nZs=
+
+Name: com/sap/adt/communication/internal/jco/session/IJCoSessionManage
+ r.class
+SHA-256-Digest: kX47XSub1Y7Tdi10SXJDro4WL5lSTSeR9jdgIJKaUtc=
+
+Name: com/sap/adt/communication/internal/session/IRequestDispatcherFac
+ tory.class
+SHA-256-Digest: L4m09JqzSK/M+FmtY4gUuKkjq6is+rr/zUAYWEQ/l5c=
+
+Name: com/sap/adt/communication/content/plaintext/package-info.class
+SHA-256-Digest: L20jmh3TLR56V3bDkxXuJcWFprSHPQkLynKV+YUYz4s=
+
+Name: com/sap/adt/communication/content/asx/IAsxDataHandler.class
+SHA-256-Digest: bvALAC0EhljDU7R6HZKJKujoEOIiJFz4LtoJoR1/d7o=
+
+Name: com/sap/adt/communication/internal/content/asx/AsxDataFactory.cl
+ ass
+SHA-256-Digest: 5FCwmy72KWoIwlnoPYb93qD6WK+TPW5VYWFXASoph5E=
+
+Name: com/sap/adt/communication/internal/jco/util/IJCoEvaluationUtil.c
+ lass
+SHA-256-Digest: YjsqGQZBsJa5nn8CmOHJuGpfwVyg4TrlPxboWbLNQio=
+
+Name: com/sap/adt/communication/content/AdtContentHandlingFactory.clas
+ s
+SHA-256-Digest: UIEB3YzJfkqaNjqckk4Hd20KqzMD2lSN3PuT/zANGXg=
+
+Name: com/sap/adt/communication/internal/resources/RestResourceRequest
+ Context.class
+SHA-256-Digest: ZZ8dkXiVxz9HWV/AU+dw9+V71CEsPferiwisNV2ZRm8=
+
+Name: com/sap/adt/communication/internal/content/asx/AsxContentHandler
+ .class
+SHA-256-Digest: 8N4w8SNQDBw0MdEtOq0em24yVFANNauXHB5P36pI428=
+
+Name: com/sap/adt/communication/internal/jco/session/JCoSession.class
+SHA-256-Digest: pwu8YyOHCND/mbDednbL14rwxr2SngwfiNzhvbT3jXo=
+
+Name: com/sap/adt/communication/message/AdtRestRequestFactory.class
+SHA-256-Digest: gYm1DkpiEQ2jkxK9JzrSeWl8HWTftQUUWqYka3L72zg=
+
+Name: com/sap/adt/communication/internal/jco/session/StatefulSystemSes
+ sion.class
+SHA-256-Digest: GAkzOavIXf3QINlr1Lfc+/kdT/Qkk2pBLF34bex9f+k=
+
+Name: com/sap/adt/communication/internal/testaccess/ResourceExceptionF
+ actoryForTest$1.class
+SHA-256-Digest: wYz1KdzC6G3Jugrb0LG8iWgXyVYrYxMg6zd1TTTriF8=
+
+Name: com/sap/adt/communication/internal/content/ContentHandlingServic
+ e.class
+SHA-256-Digest: kBVpiVnDZGzXvZvFisDtnrYPkCCEoQyH0AbLm64TYmg=
+
+Name: com/sap/adt/communication/util/CancelableBlockingJob$1.class
+SHA-256-Digest: NElyx/KeUv3rbhc18M63PcZx+IoveNQN7kKpomTfwxg=
+
+Name: com/sap/adt/communication/resources/package-info.class
+SHA-256-Digest: 5XDb5XammoeIZ7wJceegc7e2YtPoPkBzd/US60PO+E4=
+
+Name: com/sap/adt/communication/internal/message/RestResponse.class
+SHA-256-Digest: RMFtHvUPzSJtIB13HPmXdb7vBNFi6uoSuLg/Rdi313o=
+
+Name: com/sap/adt/communication/internal/content/htmltext/HtmlTextCont
+ entHandler.class
+SHA-256-Digest: 3meHB4p+rJD50qU0bqFBGXajvgPK0JwBhdD4rhbGOvc=
+
+Name: com/sap/adt/communication/content/asx/AbstractAsxDataParser.clas
+ s
+SHA-256-Digest: zUCjWiYEdRJ/LN92+vLSmSRW4Ui/3gWvRxSCZjiyLhA=
+
+Name: com/sap/adt/communication/internal/testaccess/testspy/TestSpyFor
+ StubRestResourceCalls$CallInformation.class
+SHA-256-Digest: wFfBHmOPt7SqoPRRl/ddh9wDQkI3pW+pL7CXtE/hOK0=
+
+Name: com/sap/adt/communication/internal/testaccess/stubs/StubResponse
+ .class
+SHA-256-Digest: CRsEIMzAEUxqX62KUWycIpbinZY5fw5Mrhb+TSGmE1c=
+
+Name: com/sap/adt/communication/destinations/IDestinationRegistry.clas
+ s
+SHA-256-Digest: ae+B3lEzWmVgtXieD06CORAr9r29MqpSFblZ51uUDVg=
+
+Name: com/sap/adt/communication/internal/testaccess/ExceptionDataFacto
+ ryForTest.class
+SHA-256-Digest: fdl1pXIEmWvPtyO5/qgtU1p+9IFV2T/lHdyMyhg86ZQ=
+
+Name: com/sap/adt/communication/content/exceptions/package-info.class
+SHA-256-Digest: ldd8ufzMacAfXlWeewYwySMO7c3UnqbG94qywPxaJaI=
+
+Name: com/sap/adt/communication/util/package-info.class
+SHA-256-Digest: lGjSbIOMQ2mWdfHwTU/ItluCiTW0BsaIrDACJpD9JiQ=
+
+Name: com/sap/adt/communication/session/ISystemSessionFactory.class
+SHA-256-Digest: AUMhBw2ZwpllJr6X/avetjHNKgU5neENm2dRvh8Y95Q=
+
+Name: com/sap/adt/communication/internal/content/ContentHandlerRegistr
+ yBuilder$ContentHandlerProxy.class
+SHA-256-Digest: dpgXQqr56gshUHx9+7pFNFg6kH9gs6m0b5Um2WlRMVc=
+
+Name: com/sap/adt/communication/internal/jco/ms/JCoApplicationServerAd
+ apter.class
+SHA-256-Digest: EhNv1G/FAGKdq7dERVnmAW+W513P8bNmOUzkoJ10zdw=
+
+Name: com/sap/adt/communication/internal/testaccess/ITestSpyForStubRes
+ tResourceCalls.class
+SHA-256-Digest: ue/8HLwD9z+zHj5Rv3sfc4nwCvK9/9Q5Kgag/BhGAd8=
+
+Name: com/sap/adt/communication/resources/IRestResourceFactory.class
+SHA-256-Digest: VJOTt4NpWMOcQsTkgWGPvITNr5BAtYfnk0hyTuBQenk=
+
+Name: com/sap/adt/communication/internal/notification/ProfilingData.cl
+ ass
+SHA-256-Digest: P1ONDQj8NPIlC3gadKA1OqehzR8Lrnf3kzIrJsrdSOc=
+
+Name: com/sap/adt/communication/internal/CommunicationFrameworkFactory
+ $NullDebugDataProvider.class
+SHA-256-Digest: l3d9BSAvJ7rsV/CSyxrnsZr0gMQDXfJIqawS6URJ9B8=
+
+Name: com/sap/adt/communication/content/AdtIanaLinkRelations.class
+SHA-256-Digest: U+rTPFpcx4NeRXhx+mBJXTVMp7K/ipMi8V6KnXRM9G8=
+
+Name: com/sap/adt/communication/internal/session/SystemSessionFactoryD
+ elegate.class
+SHA-256-Digest: wE5mNPSXTeZek7o2QB71M9l0Det1hQY9nlDd+CYjooU=
+
+Name: com/sap/adt/communication/internal/notification/SessionNotificat
+ ionManager$2.class
+SHA-256-Digest: r6bxktFFS8wJUGUEKJa/Y+1zXKjuNKlRJDtJTAKAu10=
+
+Name: com/sap/adt/communication/internal/jco/util/IJCoStructureBuilder
+ .class
+SHA-256-Digest: AJoBIAreNFKbdAg4ZCEmQtdpTqGbl/YkaFulKoaWihs=
+
+Name: com/sap/adt/communication/internal/notification/SessionNotificat
+ ionManager.class
+SHA-256-Digest: gyLT4JxMZ0tALFnn5bqr5f25xOJXt8KBgZVtf9NxIGI=
+
+Name: com/sap/adt/communication/resources/AbstractRestResourceRequestF
+ ilterAdapter.class
+SHA-256-Digest: b+s9JN6vpu4BPGP4hsq9+u5pxywuzMyXpWtehpTgwkQ=
+
+Name: com/sap/adt/communication/internal/jco/util/JCoEvaluationUtil.cl
+ ass
+SHA-256-Digest: R9k7fJAGcyVDaHgdtY166+uwXlIvLCKVRkVpLsObv1Q=
+
+Name: com/sap/adt/communication/internal/jco/ms/JCoMessageServerAdapte
+ r.class
+SHA-256-Digest: 7RMBSDIuYkFo8PgtbtJ1kqCriNJb431y5KPm7RuzXYU=
+
+Name: com/sap/adt/communication/notification/ISessionInfo.class
+SHA-256-Digest: NIZxErmZgRrz3zHna1uu2IEqa0SpHUbePE1FX+RIYNo=
+
+Name: com/sap/adt/communication/internal/log/LogEntry.class
+SHA-256-Digest: bKLev7NS+5IuTHhE+XcvhtQXx/bpuX0ITngxZA7Kxbo=
+
+Name: com/sap/adt/communication/exceptions/UnsupportedCommunicationPro
+ tocolException.class
+SHA-256-Digest: bOzmoQmnqzsAJ88uWLcbhkB6+nP5IvODilSOgg8U6qc=
+
+Name: com/sap/adt/communication/notification/ISessionInfo$SessionType.
+ class
+SHA-256-Digest: k6/O/WaVP/r4HhVs6niyH5Bok5+ImbGZy+R36eiCdIw=
+
+Name: com/sap/adt/communication/content/IContentHandler.class
+SHA-256-Digest: sLEdFplzUHREQL21s6CHdmcQmx2CBYJJ1KiSGHtLoxU=
+
+Name: com/sap/adt/communication/internal/message/Headers$Field.class
+SHA-256-Digest: 7xVuOYhrUqHmgk2Sgf7MuB9LUPif9Fdd4IzM/Vxnq2w=
+
+Name: com/sap/adt/communication/http/internal/registry/HttpDestination
+ Registry.class
+SHA-256-Digest: 1OgMcfcpGb/BnuhEijJidSd4oktEEsmENKQN+pF0C38=
+
+Name: com/sap/adt/communication/content/ContentHandlingException.class
+SHA-256-Digest: F8juFueS4W98cf0X7ouMn1CmJlI9Z2IudZ6FAmNTB34=
+
+Name: com/sap/adt/communication/internal/content/asx/AsxSaxHandler.cla
+ ss
+SHA-256-Digest: EARsq1HJFOF/LmTMml8ERLL+WlW/COga+YWRH/c7u+s=
+
+Name: com/sap/adt/communication/debug/package-info.class
+SHA-256-Digest: G4QY3qqjS5k0UpQRcyl1f6EgMsgkYDH7G0AOEVJUxWQ=
+
+Name: com/sap/adt/communication/internal/testaccess/ITestSpyForStubRes
+ tResourceCalls$IWritableCallInformation.class
+SHA-256-Digest: bBdXike0rjz9FtKJH7fCENeM3kYIIZoMY2sNTcEU5OM=
+
+Name: com/sap/adt/communication/internal/jco/dispatcher/JCoRequestDisp
+ atcherRestProtocolStrategy.class
+SHA-256-Digest: Rf6z2C5qlP4hqaSpyG5HDja3fK7aFBB46Etw8Wmf5xE=
+
+Name: com/sap/adt/communication/exceptions/PasswordChangeRequiredExcep
+ tion.class
+SHA-256-Digest: bQv/K7AT4yfmIif9Tt1Mp5HN1z9QlDMl8r2cbyW35TU=
+
+Name: plugin.properties
+SHA-256-Digest: jh7VpDEpqVp5aZPqzLTRwBCCwC5/fhu6j95Ii9GlF5c=
+
+Name: com/sap/adt/communication/exceptions/IExceptionData.class
+SHA-256-Digest: SMzHzLzVEWHkemQlMGK9QH89/ubiy5BaKNabrYKQ0b8=
+
+Name: com/sap/adt/communication/http/internal/api/HttpDestinationRegis
+ tryFactory.class
+SHA-256-Digest: rTrFnOxpGpDu4jAAk1CXtCKKYClym/w8aoSbDfGoBrg=
+
+Name: com/sap/adt/communication/notification/IProfilingData.class
+SHA-256-Digest: 4pHRemF2JXFtGCrNK0zK5AuZkawFhfHczzHbDnRAxTc=
+
+Name: com/sap/adt/communication/internal/jco/dispatcher/JCoFunctionExe
+ cutor$1$1.class
+SHA-256-Digest: q852KnmcwPbk1uE0aJALrBTR7EePv6aT73UvO8Z0z4Y=
+
+Name: com/sap/adt/communication/internal/log/TrafficLogger.class
+SHA-256-Digest: xEMzBiFsxmtXq1wIuiogp2mtS0DXQrJSYS8Fi1q0tdk=
+
+Name: com/sap/adt/communication/resources/IRestResource.class
+SHA-256-Digest: 40NaY6aW5iDqHWcBzI3Ug0MJAy9LMDmnOrUmMtwIkOg=
+
+Name: com/sap/adt/communication/internal/CommunicationFrameworkFactory
+ $NullTerminalId.class
+SHA-256-Digest: 6mLFgkyMTmYFYR7Xl8E2wSG0BnZbcC6+V8AML8UQjwk=
+
+Name: com/sap/adt/communication/internal/notification/SessionNotificat
+ ionManager$SessionInfo.class
+SHA-256-Digest: 2NlcwmuhUBeliPgO2cFO/5LOhi/bQaABokbsynx1Znw=
+
+Name: com/sap/adt/communication/content/plaintext/ISourceSemanticPosit
+ ion.class
+SHA-256-Digest: 9Pt0sD1CximOOQXQ4g5WYUcFYCNqkwlGF4K11HFFpho=
+
+Name: com/sap/adt/communication/internal/message/RestRequest.class
+SHA-256-Digest: I004bgCoUkq3AiXkQG9lPLwmFiVXAfdR1lNeTCWqXek=
+
+Name: com/sap/adt/communication/internal/testaccess/package-info.class
+SHA-256-Digest: jJ73rpfGsI9zVRd30uY4jxR0Xx7t5lj7V+grhBUJbEg=
+
+Name: com/sap/adt/communication/message/IRestResponse.class
+SHA-256-Digest: fg8FevPHNroG/6JiGtk5Kg5IgL0xSUHuXSYrn0hIzfM=
+
+Name: com/sap/adt/communication/sapgui/JCoDestinationPasswordUtil.clas
+ s
+SHA-256-Digest: OAc8Ei5v23G6tbFDjd76G3Lk529sXaRFmV/qI1L1erM=
+
+Name: com/sap/adt/communication/internal/content/asx/AsxDataSetList.cl
+ ass
+SHA-256-Digest: 8r30hD4JzBEotccM4CAB/iW5x0aAgDbXsSVeNtz09oE=
+
+Name: com/sap/adt/communication/internal/message/Headers.class
+SHA-256-Digest: uo/yuiIY7Uzn7C1fP8Kfh/UKfPFY+kvU2o8ttrWDjlQ=
+
+Name: com/sap/adt/communication/content/asx/IAsxDataParser.class
+SHA-256-Digest: 7SolzjNIo3tmtQTrlLWvghSO7wLZ9QLHbt40HoCHNU8=
+
+Name: com/sap/adt/communication/internal/content/plaintext/PlainTextCo
+ ntentHandler.class
+SHA-256-Digest: 8GHiRzEs5Sh3u7n1X+gOGh0E3bPtR9h+2SSaDjuk2yY=
+
+Name: com/sap/adt/communication/debug/IDebugDataProvider.class
+SHA-256-Digest: nKefzL1RciNPzdw/co93fMjkf3GKTGyywuFZN+715/w=
+
+Name: com/sap/adt/communication/notification/CommunicationCycleData.cl
+ ass
+SHA-256-Digest: M3R/LIwf/xuV1/5/tAKdVZPY5T0oE7ZmHtpVSPlXriQ=
+
+Name: com/sap/adt/communication/internal/friends/session/ISystemSessio
+ nFactoryExtension.class
+SHA-256-Digest: i6Krjmzq0wefgHcsVJJOwRlmVp176ydH+vcNzDavnRE=
+
+Name: com/sap/adt/communication/message/AdtResponseFactory.class
+SHA-256-Digest: SvJauuBzSPYPEC3L8/mz6qK0pMbCga7O2oN6QoRP6Qo=
+
+Name: com/sap/adt/communication/message/ByteArrayMessageBody.class
+SHA-256-Digest: ARbaQ705ZZFcyijRR99G3DIK6wkMltAhASy48yxo0yY=
+
+Name: com/sap/adt/communication/exceptions/package-info.class
+SHA-256-Digest: R0BRiV15JSn6AlkTb6gzs9Tk68avPZunpXXlQvts1XA=
+
+Name: com/sap/adt/communication/resources/AdtRestResourceFactory.class
+SHA-256-Digest: mpMAaAJuf+VbTerfnJoIpWUfk5/8wtrI38ajueRjyz0=
+
+Name: META-INF/maven/com.sap.adt.fwk.ci/com.sap.adt.communication/pom.
+ properties
+SHA-256-Digest: 2NFLY02kkw4lWDYxsuPkHgjagZepIZfYqr2YUOCjy8A=
+
+Name: com/sap/adt/communication/resources/IRestResourceRequestFilter.c
+ lass
+SHA-256-Digest: Woj/PB6Ru9/lYkwcRtljJmUo2R9cnrjvFSgcleHSi/I=
+
+Name: com/sap/adt/communication/session/package-info.class
+SHA-256-Digest: CBdkiND1R+U+bhcuKkFlZn0k325P0u0xNr0dVPwy79A=
+
+Name: com/sap/adt/communication/log/communicationLog.xsd
+SHA-256-Digest: PRgM1gHZhcOV+3quY51/EWbIUxg+9hpykagl77r/QYA=
+
+Name: com/sap/adt/communication/debug/AdtDebugDataProviderFactory.clas
+ s
+SHA-256-Digest: uRYBy+GnogWbksMgZyEj/wuwVeObBTPNEPp+ictT+7g=
+
+Name: com/sap/adt/communication/internal/testaccess/ITestSpyForStubRes
+ tResourceCalls$ICallInformation.class
+SHA-256-Digest: OdLXtFB7ds2fqxWB54AuEE6YxaKSGhlYRgwv3Q5oyfQ=
+
+Name: com/sap/adt/communication/message/package-info.class
+SHA-256-Digest: V1BsKWNlj8q2PI9Vd9VwzOOvZ6xkK3p5Ag6sF9yNZVg=
+
+Name: com/sap/adt/communication/message/IRequest.class
+SHA-256-Digest: gxASyxxwo/r0lltbbJS5nRSUHBKYl7DFQ3BQJn6fz+s=
+
+Name: com/sap/adt/communication/content/IContentHandlerRegistry.class
+SHA-256-Digest: D0HXmLvbDcinHydk7fXFT+MgeLEDvyA5HkEAnp5niOo=
+
+Name: com/sap/adt/communication/internal/jco/session/JCoSessionManager
+ .class
+SHA-256-Digest: IycOzCqDGEPEBXxYjIg2s8jpWsor9czOaniOAfoEP3I=
+
+Name: com/sap/adt/communication/message/IResponse$IErrorInfo.class
+SHA-256-Digest: Y8ZVouCv8KILZgR1Xcv+1KXmOWrFlsbYda3XzxwhQR4=
+
+Name: com/sap/adt/communication/internal/jco/dispatcher/IJCoFunctionSt
+ rategy.class
+SHA-256-Digest: rXDnRVoTvvivcXPYOIrrBC0qMRMKR9yzfNOQi4ZwpCY=
+
+Name: com/sap/adt/communication/internal/messages/Messages.class
+SHA-256-Digest: ix/Q7XrWj8Vu0o6O2ydX0aEYZnfEl29YIWzXgkWyvkU=
+
+Name: com/sap/adt/communication/internal/testaccess/IStubResponse.clas
+ s
+SHA-256-Digest: R3K9QBktp3ciQ7cT116jA6+0F3xGEjNZWJsEF/48TZw=
+
+Name: com/sap/adt/communication/internal/jco/util/IJCoFunctionBuilder.
+ class
+SHA-256-Digest: tlagAmEy6hLuyxdXPrajoTf9shYRJk73DMF9PHR5X58=
+
+Name: com/sap/adt/communication/content/ContentHandlerException.class
+SHA-256-Digest: AHi9VCe8MGoLaUea6pXgnDn0166AzEtMdWSx+xnJQUM=
+
+Name: com/sap/adt/communication/internal/session/IRequestDispatcher.cl
+ ass
+SHA-256-Digest: qwTfsiKy0SXL2Z5CfQymTrv9Pt1qO/Ypy+9dp9UaLAE=
+
+Name: com/sap/adt/communication/resources/IUriParser.class
+SHA-256-Digest: hAvkcyywsAs8IAd6L90xY0agRLoaOIUwjPNZJVPzE14=
+
+Name: com/sap/adt/communication/internal/jco/util/JCoKeyValueTable.cla
+ ss
+SHA-256-Digest: /EIoNjqcs9uH2hXxsCFXwB64cJxCsB/XvX4N98tZdB0=
+
+Name: com/sap/adt/communication/content/plaintext/IPlainTextPosition.c
+ lass
+SHA-256-Digest: 1IgEGwHWYME79mD3lqCuumlBUNyp+nCS0KY+WU/fvac=
+
+Name: com/sap/adt/communication/message/IRequest$Method.class
+SHA-256-Digest: roQup/HU0/hipdWFvD4ra9PpOVNjrqju/rmcVqeZ5VM=
+
+Name: com/sap/adt/communication/resources/IRestRequestContext.class
+SHA-256-Digest: AxyHNPRhyoWDPwtpGRDunxl9sLqMHVNn6+oD4NwjtpE=
+
+Name: com/sap/adt/communication/internal/CommunicationFrameworkFactory
+ $NullIdeId.class
+SHA-256-Digest: jXm/WOFMTTZp/1ntdaYE5y7B03/57Eua3Y0pKc55MvI=
+
+Name: com/sap/adt/communication/internal/jco/dispatcher/JCoFunctionExe
+ cutor.class
+SHA-256-Digest: aVUgFYXP5craS8dldj8+DxndRwKoAlyo+riKEIseHCo=
+
+Name: com/sap/adt/communication/log/ILogEntry.class
+SHA-256-Digest: KuIhjfnN4T2EeTqFYwJNlyLI15UboauAaJMJnm56Tp4=
+
+Name: com/sap/adt/communication/internal/testaccess/StubFactoryForComm
+ unication.class
+SHA-256-Digest: dMTE1IjfdMMnrCAdS5wp0oqDecQxGSLvUKhHf/uGRWk=
+
+Name: com/sap/adt/communication/internal/content/asx/IllegalDataNameEx
+ ception.class
+SHA-256-Digest: A7yc4nDZhcgqTuxL1umeX7BiDozdvP+R8jkToVvS/pU=
+
+Name: com/sap/adt/communication/internal/jco/JCoExceptionMessageTool.c
+ lass
+SHA-256-Digest: LClI8HzAsV5uaY3GtrUDYG5JRCqS4uMFcUauJq3GEls=
+
+Name: com/sap/adt/communication/internal/content/asx/SimpleAsxDataSet.
+ class
+SHA-256-Digest: 3XQ6kL7QNjUduZG1nSR31kfWeCua2VM+AfsS9YPCHGQ=
+
+Name: com/sap/adt/communication/resources/IQueryParameter.class
+SHA-256-Digest: g4L7NppheYSuYQil6VRcWK0FYdBX6OWdvPBwKqwFzNg=
+

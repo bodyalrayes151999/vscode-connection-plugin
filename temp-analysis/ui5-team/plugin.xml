@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.team.core.repository">
+      <repository
+            class="com.sap.ide.ui5.team.internal.AfrRepositoryProvider"
+            id="com.sap.ide.ui5.team.AfrRepositoryProvider"
+            typeClass="com.sap.ide.ui5.team.internal.AfrRepositoryProviderType">
+      </repository>
+   </extension>
+   <extension
+         point="com.sap.adt.compatibility.graphs">
+      <nodes
+            nameSpace="COM.SAP.ADT.AFR">
+         <node
+               name="afr">
+         </node>
+         <node
+               name="afrMIME">
+         </node>
+      </nodes>
+   </extension>
+   <extension
+         point="com.sap.adt.compatibility.graphs">
+      <nodes
+            nameSpace="/UI5/COM.SAP.IDE.UI5.TEAM.UI5_BSP ">
+         <node
+               name="afrUI5-BSP">
+         </node>
+      </nodes>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="com.sap.ide.ui5.team.internal.PropertyTester"
+            id="com.sap.ide.ui5.team.PropertyTester"
+            namespace="com.sap.ide.ui5.team"
+            properties="hasExecuteUrl"
+            type="org.eclipse.core.resources.IResource">
+      </propertyTester>
+   </extension>
+
+
+</plugin>

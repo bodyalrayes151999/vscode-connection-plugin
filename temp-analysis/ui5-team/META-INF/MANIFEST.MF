@@ -1,0 +1,459 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.sap.ide.ui5.team;singleton:=true
+Archiver-Version: Plexus Archiver
+Built-By: ppurple
+Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.0.0,5.0.0)
+ ",org.eclipse.core.resources;bundle-version="[3.0.0,5.0.0)",org.eclip
+ se.team.core;bundle-version="[3.0.0,5.0.0)",com.sap.adt.communication
+ ;bundle-version="[2.25.0,2.78.0)",com.sap.adt.destinations;bundle-ver
+ sion="[2.25.0,2.78.0)",com.sap.adt.compatibility;bundle-version="[2.2
+ 5.0,2.78.0)",com.sap.adt.tools.core;bundle-version="[2.25.0,2.78.0)",
+ com.sap.adt.logging;bundle-version="[2.25.0,2.78.0)",com.sap.adt.tran
+ sport;bundle-version="[2.25.0,2.78.0)",com.sap.ide.ui5.common,com.sap
+ .ide.ui5.services;resolution:=optional,com.sap.ide.ui5.app.plugin;res
+ olution:=optional,org.eclipse.core.expressions;bundle-version="[3.0.0
+ ,5.0.0)"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ManifestVersion: 2
+Bundle-Vendor: SAP
+Export-Package: com.sap.ide.ui5.team.internal;x-friends:="com.sap.ide.
+ ui5.team.ui,com.sap.ide.ui5.quality.tools",com.sap.ide.ui5.team.inter
+ nal.client,com.sap.ide.ui5.team.internal.messages;x-friends:="com.sap
+ .ide.ui5.team.quality.tools",com.sap.ide.ui5.team.internal.repository
+ ;x-friends:="com.sap.ide.ui5.team.ui,com.sap.ide.ui5.quality.tools",c
+ om.sap.ide.ui5.team.internal.resourcemanager,com.sap.ide.ui5.team.int
+ ernal.statemanager;x-friends:="com.sap.ide.ui5.team.ui",com.sap.ide.u
+ i5.team.internal.subscriber;x-friends:="com.sap.ide.ui5.team.ui"
+Bundle-Name: %Bundle-Name
+Bundle-Version: 1.44.14
+Bundle-Localization: bundle
+Bundle-Activator: com.sap.ide.ui5.team.internal.Activator
+Created-By: Apache Maven 3.0.4
+Build-Jdk: 1.7.0_13
+
+Name: com/sap/ide/ui5/team/internal/ILogonHandler.class
+SHA-256-Digest: KmTukY1Tuh1I5Hq26pAI3YzHdbG4S0QgASd2dTBMkd8=
+
+Name: com/sap/ide/ui5/team/internal/resourcemanager/AfrContentSubmitte
+ r.class
+SHA-256-Digest: dEI38dgEGNAWzAk2qa/WWveRi0BaXxQBTYbYeRWT+OQ=
+
+Name: plugin.xml
+SHA-256-Digest: Ao6wU7wIWsgY0Jk56bg8LBzOn09Cpif4UNaoBeEbDTw=
+
+Name: com/sap/ide/ui5/team/internal/resourcemanager/SynchronizationRes
+ ult.class
+SHA-256-Digest: cf7JknwR/DFU0DinzDXANnj/D5fV9Xsm4Ej1ySde8H8=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/AfrRepositoryProvid
+ er$LogonHandler.class
+SHA-256-Digest: 2BP8sCT21AEG3wNGDxOe0orLeuE+J4SqZwC7pg18prE=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/AfrFolder.cl
+ ass
+SHA-256-Digest: G7HxmamXQZ/MWarxRnaB+/7Hllsb3OVHipDqU9VXbAo=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/subscriber/AfrSubsc
+ riber$SubscriberMode.class
+SHA-256-Digest: UEJMen/D6mJ+HYuFG2IPwkTQ9jruQbA/T0a1S5qqyAU=
+
+Name: com/sap/ide/ui5/team/internal/client/AfrClient.class
+SHA-256-Digest: 9ZTpPcfONLHWCLuFVlrhZln3N5WctHVuyMph6sBvfUM=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/resourcemanager/Syn
+ chronizationResult.class
+SHA-256-Digest: cf7JknwR/DFU0DinzDXANnj/D5fV9Xsm4Ej1ySde8H8=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/resourcemanager/Afr
+ SynchronizeElementComparator.class
+SHA-256-Digest: J6acUOM2OLv4poiC0LBnqXwvY/I9nH9Jey44NmtUd78=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/subscriber/AfrSubsc
+ riber$SubscriberMode$1.class
+SHA-256-Digest: 01mJZERsiZxl5ajFwfyMEqTqpUGCBtHk0iWMNeo9l6A=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/AfrAppIndexR
+ efrehResult.class
+SHA-256-Digest: EBUQHwTBkN2p05lmoGSXi4hClL0q7xup9YnycFwDu3s=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/IAfrFile.cla
+ ss
+SHA-256-Digest: A/cu12OKNo39dyf4DfaDBNih4DhI3SeJ3N52obf3AkM=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/statemanager/AfrSta
+ tePersistence$SaveJob.class
+SHA-256-Digest: 1XroQee2oP68G0Sws32d5UClKgLWFwNLpV+8cLyDjqQ=
+
+Name: com/sap/ide/ui5/team/internal/repository/Ui5BspRepository.class
+SHA-256-Digest: XR77oOIeyGigVs01xELQkkUroB+nr4oMbw/S63AWxIo=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/AfrAppIndexR
+ efrehResultMessage.class
+SHA-256-Digest: TW/+IZF7AJEK5ScwCMWR0UAYqCDACS+NH6w7zFZyGHw=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/ConflictingC
+ hangeException.class
+SHA-256-Digest: ZW0p/JpN0HiNsHBxPjAGG4l81OckO1wC9HWmPTiuLWg=
+
+Name: com/sap/ide/ui5/team/internal/client/IAfrClient.class
+SHA-256-Digest: j21eFzmiF1x+2vKdycoEvEaBVR2XF3zNw/xIDKSFFGY=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/resourcemanager/Afr
+ ContentSubmitter.class
+SHA-256-Digest: dEI38dgEGNAWzAk2qa/WWveRi0BaXxQBTYbYeRWT+OQ=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/AfrRepositoryProvid
+ er$1.class
+SHA-256-Digest: i3288sAGLlciuS1ax37avdNdOvKQdBU/o2DoA6lgcu0=
+
+Name: com/sap/ide/ui5/team/internal/client/TeamUriDiscovery.class
+SHA-256-Digest: 1M/ny+kiWhj/EJgSo+yg0GYzT2kQijcK2gjhFaOMkIM=
+
+Name: com/sap/ide/ui5/team/internal/subscriber/AfrSubscriber$Subscribe
+ rMode$2.class
+SHA-256-Digest: UX4C29p2IvHpkY+SZ9F1RJHsl3/qYW/hMoigYdnyomU=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/Activator.class
+SHA-256-Digest: av+28Ee9yX995uggexW6nopkdscEEmTQOW5nt3+DEko=
+
+Name: com/sap/ide/ui5/team/internal/statemanager/AfrStateManager$1.cla
+ ss
+SHA-256-Digest: pxsV0fnSlIo0lxk7aTen9PCdXgh8epNVI3y4cA6qfRs=
+
+Name: com/sap/ide/ui5/team/internal/subscriber/AfrSubscriber.class
+SHA-256-Digest: G/7cBvWunJddx99cRI9jZHF2eyPDqT5vshM8pMo6P90=
+
+Name: com/sap/ide/ui5/team/internal/client/AfrClient$RESOURCE_TYPE.cla
+ ss
+SHA-256-Digest: txRropQKA4MXAa/7f0sbLo8KAo61/Isagaxvl4/7Amw=
+
+Name: com/sap/ide/ui5/team/internal/client/IAfrFolder.class
+SHA-256-Digest: 4GeWsaAOYvKCIIOjZHesfi6Rfov7QwY48OExqzNsJqA=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/AfrFile.clas
+ s
+SHA-256-Digest: +6Fn+FC58x7FoVt3akkkgVFC7B7mOFTJtSu+GuZ0JfE=
+
+Name: com/sap/ide/ui5/team/internal/PropertyTester.class
+SHA-256-Digest: Xdx4DueWGfoIXsx9RaxZpHnLkJYDQSDrIfIy76USTro=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/subscriber/AfrSubsc
+ riber.class
+SHA-256-Digest: G/7cBvWunJddx99cRI9jZHF2eyPDqT5vshM8pMo6P90=
+
+Name: com/sap/ide/ui5/team/internal/subscriber/AfrRemoteTree.class
+SHA-256-Digest: ezqzbXJDewSzkiCjcenoFHcsxqN7Ahd3lwGueEH96TA=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/statemanager/AfrSta
+ tePersistence.class
+SHA-256-Digest: awI/nCy86gaJf1MUNvgBUI3isvNEbG1228c3aFKxv7Y=
+
+Name: com/sap/ide/ui5/team/internal/client/AfrResource.class
+SHA-256-Digest: W89lO6fnYpWSMdTdgHQyGcm0zU0mIaibyNHKhpc9XdU=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/statemanager/AfrSta
+ teManager.class
+SHA-256-Digest: e0g0zg9z8mb/OfhGxQa8ioriu9bM7DI69wRL1FbdiB4=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/messages/Messages.c
+ lass
+SHA-256-Digest: kHay+9J7jIVpI0ppq/U1/fFzoGJBxZ6oicA2myX+CAU=
+
+Name: com/sap/ide/ui5/team/internal/Activator.class
+SHA-256-Digest: av+28Ee9yX995uggexW6nopkdscEEmTQOW5nt3+DEko=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/resourcemanager/Afr
+ SynchronizeElement.class
+SHA-256-Digest: v1tKO9Tgexb0B7zpn8K6/FsD5AOdgsqOd7jNeI6Yepc=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/subscriber/AfrRemot
+ eTree.class
+SHA-256-Digest: ezqzbXJDewSzkiCjcenoFHcsxqN7Ahd3lwGueEH96TA=
+
+Name: com/sap/ide/ui5/team/internal/resourcemanager/AfrContentRetrieve
+ r.class
+SHA-256-Digest: +uR3LEdefVF7U7xY42TKurkHOrRM9ctlvTBe67Jz5Qw=
+
+Name: com/sap/ide/ui5/team/internal/resourcemanager/IAfrTransportData.
+ class
+SHA-256-Digest: tE8FeIyazTYogvR5PyrmeX6Lu0UZo442paU81LFvzS4=
+
+Name: META-INF/maven/com.sap.ide.ui5/com.sap.ide.ui5.team/pom.properti
+ es
+SHA-256-Digest: anTjiQLA8EJytwRNulKdfEsCnPYbzuxG7FvihU0yHH4=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/AfrRepositoryProvid
+ erType.class
+SHA-256-Digest: uhWk+PElQTkaah7SJjxqtKviZRwttP/uYO+IWi2mK2Y=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/TeamUriDisco
+ very.class
+SHA-256-Digest: 1M/ny+kiWhj/EJgSo+yg0GYzT2kQijcK2gjhFaOMkIM=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/AfrClient.cl
+ ass
+SHA-256-Digest: 9ZTpPcfONLHWCLuFVlrhZln3N5WctHVuyMph6sBvfUM=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/PropertyTester.clas
+ s
+SHA-256-Digest: Xdx4DueWGfoIXsx9RaxZpHnLkJYDQSDrIfIy76USTro=
+
+Name: com/sap/ide/ui5/team/internal/client/IAfrFile.class
+SHA-256-Digest: A/cu12OKNo39dyf4DfaDBNih4DhI3SeJ3N52obf3AkM=
+
+Name: com/sap/ide/ui5/team/internal/AfrRepositoryProviderType.class
+SHA-256-Digest: uhWk+PElQTkaah7SJjxqtKviZRwttP/uYO+IWi2mK2Y=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/AfrResponse.
+ class
+SHA-256-Digest: aMcGGbCimk8sQlU2E3giSAg0TMpvX44fFaBCswOlbx8=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/repository/Reposito
+ ryType.class
+SHA-256-Digest: +uIwqKBRYednqu4tvk8AYZczN5LjG26aepZ84SGyEZI=
+
+Name: META-INF/maven/com.sap.ide.ui5/com.sap.ide.ui5.team/pom.xml
+SHA-256-Digest: ZRSRazQkCsQRvo/HytoHV3r275LXXI+TXfoKKHxPohQ=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/resourcemanager/IAf
+ rTransportData.class
+SHA-256-Digest: tE8FeIyazTYogvR5PyrmeX6Lu0UZo442paU81LFvzS4=
+
+Name: com/sap/ide/ui5/team/internal/client/IAfrResource.class
+SHA-256-Digest: j57h0cuo2N43l/9VE6f3fiTDFzBmFGUerYKuVnkaKtE=
+
+Name: com/sap/ide/ui5/team/internal/statemanager/AfrStatePersistence.c
+ lass
+SHA-256-Digest: awI/nCy86gaJf1MUNvgBUI3isvNEbG1228c3aFKxv7Y=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/AfrAppIndexR
+ efrehResult$1.class
+SHA-256-Digest: 4eAyHsbJbIul7xbPCkx3DOySUUB+1hgzTebX42SrUdM=
+
+Name: com/sap/ide/ui5/team/internal/resourcemanager/AfrSynchronizeElem
+ entComparator.class
+SHA-256-Digest: J6acUOM2OLv4poiC0LBnqXwvY/I9nH9Jey44NmtUd78=
+
+Name: com/sap/ide/ui5/team/internal/client/ADTAtomParser.class
+SHA-256-Digest: mhe/FJTaw9QPYyTSB0SplruYREzlVughkt9rw6RRFu4=
+
+Name: com/sap/ide/ui5/team/internal/repository/IAfrRepository.class
+SHA-256-Digest: vIBWIru1TxCl0FhIJs6K+/j90PzLn4UVxcxsYFGJSMM=
+
+Name: com/sap/ide/ui5/team/internal/statemanager/AfrStateManager.class
+SHA-256-Digest: e0g0zg9z8mb/OfhGxQa8ioriu9bM7DI69wRL1FbdiB4=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/statemanager/AfrSta
+ teManager$1.class
+SHA-256-Digest: pxsV0fnSlIo0lxk7aTen9PCdXgh8epNVI3y4cA6qfRs=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/ILogonHandler.class
+SHA-256-Digest: KmTukY1Tuh1I5Hq26pAI3YzHdbG4S0QgASd2dTBMkd8=
+
+Name: about.properties
+SHA-256-Digest: CkmsAWbPf0WvX4aDv+pYsdltBF/QPjhxrDB9CQLMrTA=
+
+Name: com/sap/ide/ui5/team/internal/client/AbstractAtomParser.class
+SHA-256-Digest: kJyAQVgjg3oS7Q9UdpXFR8a/wSzRDQGi7WMLdTdmOKY=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/repository/MimeRepo
+ sitory.class
+SHA-256-Digest: VfAD1oQySxRh7k4I9XRie5eB9Rbwl+D318NcHB5KNu8=
+
+Name: com/sap/ide/ui5/team/internal/repository/MimeRepository.class
+SHA-256-Digest: VfAD1oQySxRh7k4I9XRie5eB9Rbwl+D318NcHB5KNu8=
+
+Name: com/sap/ide/ui5/team/internal/client/ConflictingChangeException.
+ class
+SHA-256-Digest: ZW0p/JpN0HiNsHBxPjAGG4l81OckO1wC9HWmPTiuLWg=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/IAfrResource
+ .class
+SHA-256-Digest: j57h0cuo2N43l/9VE6f3fiTDFzBmFGUerYKuVnkaKtE=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/AbstractAtom
+ Parser.class
+SHA-256-Digest: kJyAQVgjg3oS7Q9UdpXFR8a/wSzRDQGi7WMLdTdmOKY=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/statemanager/IAfrSt
+ ateManager.class
+SHA-256-Digest: wabmdljHm9gBUQkRdnaHOFzF/kcMF+nNOrkyjE6KLf8=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/repository/Ui5BspRe
+ pository.class
+SHA-256-Digest: XR77oOIeyGigVs01xELQkkUroB+nr4oMbw/S63AWxIo=
+
+Name: com/sap/ide/ui5/team/internal/client/AfrAppIndexRefrehResult.cla
+ ss
+SHA-256-Digest: EBUQHwTBkN2p05lmoGSXi4hClL0q7xup9YnycFwDu3s=
+
+Name: com/sap/ide/ui5/team/internal/messages/messages.properties
+SHA-256-Digest: wtoYyfYNWzt+70qdndc15a5GUy7RCn0KZgh1rn9or9U=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/VersionWarningStatu
+ s.class
+SHA-256-Digest: wGYNp43MpRqnRtkr8Nms187zLHGPuVrDrhLEiQayb+U=
+
+Name: com/sap/ide/ui5/team/internal/statemanager/IAfrStateManager.clas
+ s
+SHA-256-Digest: wabmdljHm9gBUQkRdnaHOFzF/kcMF+nNOrkyjE6KLf8=
+
+Name: com/sap/ide/ui5/team/internal/client/AfrAppIndexRefrehResult$1.c
+ lass
+SHA-256-Digest: 4eAyHsbJbIul7xbPCkx3DOySUUB+1hgzTebX42SrUdM=
+
+Name: com/sap/ide/ui5/team/internal/resourcemanager/AfrTransportData.c
+ lass
+SHA-256-Digest: ccfoq5gZY2YdWakThOj01+YXxqFFNzi7VVC772KsqdU=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/resourcemanager/Afr
+ TransportData.class
+SHA-256-Digest: ccfoq5gZY2YdWakThOj01+YXxqFFNzi7VVC772KsqdU=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/AfrResource.
+ class
+SHA-256-Digest: W89lO6fnYpWSMdTdgHQyGcm0zU0mIaibyNHKhpc9XdU=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/ProjectConfigurer.c
+ lass
+SHA-256-Digest: ksrCJoaJfeDIqdQKZctFVtoteylhotLcJrOQDfm0i14=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/repository/IAfrRepo
+ sitory.class
+SHA-256-Digest: vIBWIru1TxCl0FhIJs6K+/j90PzLn4UVxcxsYFGJSMM=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/resourcemanager/Afr
+ ContentRetriever.class
+SHA-256-Digest: +uR3LEdefVF7U7xY42TKurkHOrRM9ctlvTBe67Jz5Qw=
+
+Name: com/sap/ide/ui5/team/internal/subscriber/IAfrRemoteVariantUpdate
+ Listener.class
+SHA-256-Digest: pXTVsZ7mGfzMojOa6RCNtlJs54wQnyLfFNd+3txzNBs=
+
+Name: com/sap/ide/ui5/team/internal/AfrRepositoryProvider$1.class
+SHA-256-Digest: i3288sAGLlciuS1ax37avdNdOvKQdBU/o2DoA6lgcu0=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/subscriber/IAfrRemo
+ teVariantUpdateListener.class
+SHA-256-Digest: pXTVsZ7mGfzMojOa6RCNtlJs54wQnyLfFNd+3txzNBs=
+
+Name: com/sap/ide/ui5/team/internal/subscriber/AfrSubscriber$Subscribe
+ rMode.class
+SHA-256-Digest: UEJMen/D6mJ+HYuFG2IPwkTQ9jruQbA/T0a1S5qqyAU=
+
+Name: com/sap/ide/ui5/team/internal/AfrRepositoryProvider$LogonHandler
+ .class
+SHA-256-Digest: 2BP8sCT21AEG3wNGDxOe0orLeuE+J4SqZwC7pg18prE=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/messages/messages.p
+ roperties
+SHA-256-Digest: wtoYyfYNWzt+70qdndc15a5GUy7RCn0KZgh1rn9or9U=
+
+Name: com/sap/ide/ui5/team/internal/client/AfrResponse.class
+SHA-256-Digest: aMcGGbCimk8sQlU2E3giSAg0TMpvX44fFaBCswOlbx8=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/AfrClient$RE
+ SOURCE_TYPE.class
+SHA-256-Digest: txRropQKA4MXAa/7f0sbLo8KAo61/Isagaxvl4/7Amw=
+
+Name: com/sap/ide/ui5/team/internal/client/AfrFile.class
+SHA-256-Digest: +6Fn+FC58x7FoVt3akkkgVFC7B7mOFTJtSu+GuZ0JfE=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/subscriber/AfrSubsc
+ riber$SubscriberMode$2.class
+SHA-256-Digest: UX4C29p2IvHpkY+SZ9F1RJHsl3/qYW/hMoigYdnyomU=
+
+Name: bundle.properties
+SHA-256-Digest: dsmRIEIyap0uRGWumB3zkfDlzS6ZXNrNpNUcQeUWW9c=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/AfrRepositoryProvid
+ er.class
+SHA-256-Digest: fBr17lLA2gkIUy2ngzgTRm/8YiDNDeJe/Xo4yAIw/W0=
+
+Name: com/sap/ide/ui5/team/internal/AfrRepositoryProvider.class
+SHA-256-Digest: fBr17lLA2gkIUy2ngzgTRm/8YiDNDeJe/Xo4yAIw/W0=
+
+Name: com/sap/ide/ui5/team/internal/client/AfrFolder.class
+SHA-256-Digest: G7HxmamXQZ/MWarxRnaB+/7Hllsb3OVHipDqU9VXbAo=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/IAfrFolder.c
+ lass
+SHA-256-Digest: 4GeWsaAOYvKCIIOjZHesfi6Rfov7QwY48OExqzNsJqA=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/repository/Abstract
+ AfrRepository.class
+SHA-256-Digest: F9dOJr/sgJ2wARhHhmOQWZdBtKMR3D4ZJOQhK0JDfKw=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/resourcemanager/Afr
+ SynchronizeList.class
+SHA-256-Digest: JpBo7KW4oBOrGNKaBzL5YVfTbBUJIyuQ268ZMv6aPcc=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/subscriber/AfrResou
+ rceVariant.class
+SHA-256-Digest: sKa6dKq8T7BzcjKwNjgwW1lZyd+7k6mjzbGnUSEStTo=
+
+Name: com/sap/ide/ui5/team/internal/subscriber/AfrSubscriber$Subscribe
+ rMode$1.class
+SHA-256-Digest: 01mJZERsiZxl5ajFwfyMEqTqpUGCBtHk0iWMNeo9l6A=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/resourcemanager/Syn
+ chronizationStatus.class
+SHA-256-Digest: zjr8UiMLUZXQssNsyyrll+o/5w9VW1comOzR0ayXmEQ=
+
+Name: com/sap/ide/ui5/team/internal/client/AfrAppIndexRefrehResultMess
+ age.class
+SHA-256-Digest: TW/+IZF7AJEK5ScwCMWR0UAYqCDACS+NH6w7zFZyGHw=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/ADTAtomParse
+ r.class
+SHA-256-Digest: mhe/FJTaw9QPYyTSB0SplruYREzlVughkt9rw6RRFu4=
+
+Name: com/sap/ide/ui5/team/internal/repository/RepositoryType.class
+SHA-256-Digest: +uIwqKBRYednqu4tvk8AYZczN5LjG26aepZ84SGyEZI=
+
+Name: com/sap/ide/ui5/team/internal/subscriber/AfrResourceVariant.clas
+ s
+SHA-256-Digest: sKa6dKq8T7BzcjKwNjgwW1lZyd+7k6mjzbGnUSEStTo=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/subscriber/AfrRepos
+ itoryResourceVariantRemoteData.class
+SHA-256-Digest: u3QWq66Y/FfZ6cYCsHbTClLPY4nQm1l+FrZ+mkAUKAY=
+
+Name: com/sap/ide/ui5/team/internal/resourcemanager/SynchronizationSta
+ tus.class
+SHA-256-Digest: zjr8UiMLUZXQssNsyyrll+o/5w9VW1comOzR0ayXmEQ=
+
+Name: com/sap/ide/ui5/team/internal/subscriber/AfrRepositoryResourceVa
+ riantRemoteData.class
+SHA-256-Digest: u3QWq66Y/FfZ6cYCsHbTClLPY4nQm1l+FrZ+mkAUKAY=
+
+Name: com/sap/ide/ui5/team/internal/resourcemanager/AfrSynchronizeElem
+ ent.class
+SHA-256-Digest: v1tKO9Tgexb0B7zpn8K6/FsD5AOdgsqOd7jNeI6Yepc=
+
+Name: com/sap/ide/ui5/team/internal/repository/AbstractAfrRepository.c
+ lass
+SHA-256-Digest: F9dOJr/sgJ2wARhHhmOQWZdBtKMR3D4ZJOQhK0JDfKw=
+
+Name: com/sap/ide/ui5/team/internal/resourcemanager/AfrSynchronizeList
+ .class
+SHA-256-Digest: JpBo7KW4oBOrGNKaBzL5YVfTbBUJIyuQ268ZMv6aPcc=
+
+Name: target/classes/com/sap/ide/ui5/team/internal/client/IAfrClient.c
+ lass
+SHA-256-Digest: j21eFzmiF1x+2vKdycoEvEaBVR2XF3zNw/xIDKSFFGY=
+
+Name: com/sap/ide/ui5/team/internal/VersionWarningStatus.class
+SHA-256-Digest: wGYNp43MpRqnRtkr8Nms187zLHGPuVrDrhLEiQayb+U=
+
+Name: com/sap/ide/ui5/team/internal/ProjectConfigurer.class
+SHA-256-Digest: ksrCJoaJfeDIqdQKZctFVtoteylhotLcJrOQDfm0i14=
+
+Name: com/sap/ide/ui5/team/internal/statemanager/AfrStatePersistence$S
+ aveJob.class
+SHA-256-Digest: 1XroQee2oP68G0Sws32d5UClKgLWFwNLpV+8cLyDjqQ=
+
+Name: com/sap/ide/ui5/team/internal/messages/Messages.class
+SHA-256-Digest: kHay+9J7jIVpI0ppq/U1/fFzoGJBxZ6oicA2myX+CAU=
+

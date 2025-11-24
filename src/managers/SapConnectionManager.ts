@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import * as https from 'https';
 import * as http from 'http';
+import { HttpsProxyAgent } from 'https-proxy-agent';
 import { SapRouterClient } from '../utils/SapRouterClient';
 
 export interface SapConnection {
@@ -124,6 +125,90 @@ export class SapConnectionManager {
         try {
             console.log(`Testing connection through SAP Router: ${connection.saprouter}`);
             
+            // Parse SAP Router string to get host and port
+            // Format: /H/host or /H/host/S/port
+            const routerMatch = connection.saprouter!.match(/\/H\/([^\/]+)(?:\/S\/(\d+))?/);
+            if (!routerMatch) {
+                throw new Error('Invalid SAP Router format');
+            }
+            
+            const routerHost = routerMatch[1];
+            const routerPort = routerMatch[2] ? parseInt(routerMatch[2]) : 3299; // Default SAP Router port
+            
+            console.log(`Using SAP Router as HTTP proxy: ${routerHost}:${routerPort}`);
+            
+            // Try using SAP Router as HTTP CONNECT proxy
+            const proxyUrl = `http://${routerHost}:${routerPort}`;
+            const agent = new HttpsProxyAgent(proxyUrl);
+            
+            const auth = connection.username && connection.password
+                ? Buffer.from(`${connection.username}:${connection.password}`).toString('base64')
+                : undefined;
+            
+            return new Promise((resolve) => {
+                const options: any = {
+                    hostname: connection.host,
+                    port: connection.port,
+                    path: '/sap/bc/ping',
+                    method: 'GET',
+                    agent: agent,
+                    rejectUnauthorized: false,
+                    timeout: 30000
+                };
+                
+                if (auth) {
+                    options.headers = {
+                        'Authorization': `Basic ${auth}`
+                    };
+                }
+                
+                console.log(`Connecting to ${connection.host}:${connection.port} via proxy...`);
+                
+                const protocol = connection.secure ? https : http;
+                const req = protocol.request(options, (res) => {
+                    console.log(`Proxy response status: ${res.statusCode}`);
+                    
+                    if (res.statusCode === 200 || res.statusCode === 401) {
+                        resolve({ success: true, message: 'Connection successful through SAP Router (HTTP proxy mode)' });
+                    } else {
+                        resolve({ success: false, message: `Connection failed with status ${res.statusCode}` });
+                    }
+                });
+                
+                req.on('error', (error) => {
+                    console.error('Proxy connection error:', error);
+                    
+                    // If HTTP proxy failed, fall back to custom NI protocol
+                    console.log('HTTP proxy failed, trying SAP NI protocol...');
+                    this.testConnectionWithNIProtocol(connection).then(resolve).catch(() => {
+                        resolve({
+                            success: false,
+                            message: `SAP Router connection failed. Please:\n` +
+                                     `  • Ensure you can access the router at ${routerHost}:${routerPort}\n` +
+                                     `  • Contact SAP Basis for router permissions\n` +
+                                     `  • Or connect via VPN and use Direct Connection\n\n` +
+                                     `Error: ${error.message}`
+                        });
+                    });
+                });
+                
+                req.on('timeout', () => {
+                    console.error('Proxy connection timeout');
+                    req.destroy();
+                    resolve({ success: false, message: 'Connection timeout through SAP Router' });
+                });
+                
+                req.end();
+            });
+        } catch (error: any) {
+            console.error('Router connection error:', error);
+            return { success: false, message: `SAP Router error: ${error.message}` };
+        }
+    }
+    
+    private async testConnectionWithNIProtocol(connection: SapConnection): Promise<{ success: boolean; message: string }> {
+        // Fallback to original SAP NI protocol implementation
+        try {
             const headers: any = {};
             if (connection.username && connection.password) {
                 const auth = Buffer.from(`${connection.username}:${connection.password}`).toString('base64');
@@ -140,31 +225,13 @@ export class SapConnectionManager {
                 connection.secure
             );
 
-            console.log(`Router response status: ${response.statusCode}`);
-            
             if (response.statusCode === 200 || response.statusCode === 401) {
-                return { success: true, message: 'Connection successful through SAP Router' };
+                return { success: true, message: 'Connection successful through SAP Router (NI protocol)' };
             } else {
                 return { success: false, message: `Connection failed with status ${response.statusCode}` };
             }
         } catch (error: any) {
-            console.error('Router connection error:', error);
-            
-            // Check if it's a router permission error
-            if (error.message.includes('invalid route') || error.message.includes('ECONNRESET')) {
-                return {
-                    success: false,
-                    message: `SAP Router requires permission configuration.\n\n` +
-                             `The SAP Router at ${connection.saprouter} is blocking the connection.\n` +
-                             `Please contact your SAP Basis team to:\n` +
-                             `  • Add route permissions for your machine\n` +
-                             `  • Or connect via VPN and use direct connection (remove SAP Router)\n` +
-                             `  • Or configure router authentication if required\n\n` +
-                             `Technical error: ${error.message}`
-                };
-            }
-            
-            return { success: false, message: `SAP Router error: ${error.message}` };
+            throw error;
         }
     }
 

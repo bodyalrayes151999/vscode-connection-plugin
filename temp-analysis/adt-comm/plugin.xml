@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+<!--  Extension Points -->   
+   <extension-point id="communicationListeners" name="%extension-point.name.communicationListeners_xgrp" schema="schema/communicationListeners.exsd"/>
+   <extension-point id="contentHandlers" name="%extension-point.name.contentHandlers_xgrp" schema="schema/contentHandlers.exsd"/>
+   <extension-point id="debugDataProvider" name="%extension-point.name.debugDataProvider_xgrp" schema="schema/debugDataProvider.exsd"/>
+   
+<!--  Communication Listeners -->   
+   <extension
+         point="com.sap.adt.communication.communicationListeners">
+      <listener
+            class="com.sap.adt.communication.internal.log.TrafficLogger"
+            synchronousNotification="true">
+      </listener>
+      <listener
+            class="com.sap.adt.communication.internal.log.LoggingCommunicationListener"
+            synchronousNotification="false">
+      </listener>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.sap.adt.communication.internal.CommunicationPreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="com.sap.ide.support.supportInformationProviders">
+      <informationProvider
+            class="com.sap.adt.communication.internal.log.CommunicationLogProvider"
+            id="com.sap.adt.communication.logProvider"
+            internal="false">
+         <data
+               category="com.sap.adt.communication"
+               description="%SupportInformation-CommunicationLog_xgrp"
+               filename="communicationLog.xml"
+               id="com.sap.adt.communication.log"
+               optional="true">
+         </data>
+      </informationProvider>
+   </extension>
+
+</plugin>

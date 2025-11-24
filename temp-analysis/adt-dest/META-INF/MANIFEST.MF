@@ -1,0 +1,123 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.sap.adt.destinations;singleton:=true
+Archiver-Version: Plexus Archiver
+Built-By: ppurple
+Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.11.0,4.0.0
+ )",org.eclipse.core.databinding;bundle-version="[1.5.0,2.0.0)",org.ec
+ lipse.core.databinding.beans;bundle-version="[1.3.0,2.0.0)",com.sap.a
+ dt.logging;bundle-version="[2.76.0,3.0.0)",org.eclipse.core.resources
+ ;bundle-version="[3.10.0,4.0.0)",com.sap.adt.util;bundle-version="[2.
+ 76.0,3.0.0)";visibility:=reexport,com.sap.adt.destinations.model;bund
+ le-version="[2.76.0,3.0.0)";visibility:=reexport,com.sap.adt.communic
+ ation;bundle-version="[2.76.0,3.0.0)",com.sap.adt.compatibility;bundl
+ e-version="[2.76.0,3.0.0)"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ManifestVersion: 2
+Bundle-Vendor: %Bundle-Vendor_xtxt
+Eclipse-ExtensibleAPI: true
+Export-Package: com.sap.adt.destinations,com.sap.adt.destinations.inte
+ rnal;x-friends:="com.sap.adt.docu.ui,com.sap.adt.tools.abapsource.ui,
+ com.sap.adt.tools.core.ui",com.sap.adt.destinations.logon,com.sap.adt
+ .destinations.logon.notification,com.sap.adt.destinations.logon.testa
+ ccess;x-friends:="com.sap.adt.tools.core.ui",com.sap.adt.destinations
+ .passwordchange;x-friends:="com.sap.adt.destinations.ui"
+Bundle-Name: %Bundle-Name_xtxt
+Bundle-Version: 2.77.1
+Bundle-Localization: plugin
+Bundle-Activator: com.sap.adt.destinations.internal.Activator
+Created-By: Apache Maven 3.0.4
+Build-Jdk: 1.7.0_80
+
+Name: com/sap/adt/destinations/package-info.class
+SHA-256-Digest: gaSwGyO8MZ3Gba0KwUTScChyPwD0j4Pv/Gd9Vw58x6k=
+
+Name: plugin.xml
+SHA-256-Digest: p59+XdkwIL9u4+OwmWs4W7sxeV1Arj3w0GptC4hD2Mo=
+
+Name: com/sap/adt/destinations/IDestinationUtil.class
+SHA-256-Digest: upgGOaWhllCy6Uk/apSpM1eIiWvvuAFU8VLlBkxSfRs=
+
+Name: META-INF/maven/com.sap.adt.fwk.ci/com.sap.adt.destinations/pom.p
+ roperties
+SHA-256-Digest: a5/cREuDQxrScHbCBFhb2vFymOR2DrkZQ9br6Mjk4EY=
+
+Name: com/sap/adt/destinations/logon/package-info.class
+SHA-256-Digest: IWvEmMZZfcygyQzhKQWxHvvmrKpmAPiCDJBLMF18md4=
+
+Name: com/sap/adt/destinations/IDestinationDataProvider.class
+SHA-256-Digest: sxVk24wwY+6W/ZPfJmlicP0SFM2pFUgNDsbrcp2zi7Y=
+
+Name: com/sap/adt/destinations/internal/messages/Messages.class
+SHA-256-Digest: rsuCwJmbEWVns+hdoEB8ioi438dDsYICpvm9LtaEz6U=
+
+Name: com/sap/adt/destinations/internal/notification/LoggedOnEvent.cla
+ ss
+SHA-256-Digest: d/jhMxjoKSG93DBnaQLb6gh1fJq/6YjaLBQ+NkIXuko=
+
+Name: com/sap/adt/destinations/internal/messages/messages.properties
+SHA-256-Digest: SvUEvF+++rrS6rL3uO5Ya2nF768Ah/rfmZG8cGsHtzI=
+
+Name: com/sap/adt/destinations/internal/logon/AdtLogonService$LogonSch
+ edulingRule.class
+SHA-256-Digest: jk1mWadVl76Z9gfNN3ItDUEVoUZAlqD09zwtGIW2ZvQ=
+
+Name: com/sap/adt/destinations/AdtDestinationUtilFactory.class
+SHA-256-Digest: h9a4iiElWN/eTsYjU9dYViZsw8ALFh7ug2dLQWvO/JM=
+
+Name: META-INF/maven/com.sap.adt.fwk.ci/com.sap.adt.destinations/pom.x
+ ml
+SHA-256-Digest: cnyyUZSPPW+jbdq3qt/mlUIZZeQIQ5oguknG0q+TyDs=
+
+Name: plugin.properties
+SHA-256-Digest: POfuYi1+/8zpJ14AECS/FiT3AnwOdAbZISA5jbgQYRM=
+
+Name: com/sap/adt/destinations/internal/passwordchange/AdtPasswordChan
+ geService.class
+SHA-256-Digest: pQGm0Xp/W3ib9mcXuCHlA+ZH9QTAcfm9+Mk4EWq1MY8=
+
+Name: com/sap/adt/destinations/logon/notification/ILogonListener.class
+SHA-256-Digest: RaX734POAA0WFKfLbBfN7W7jt87zxDuJkzaHWCM0Wz8=
+
+Name: com/sap/adt/destinations/passwordchange/AdtPasswordChangeService
+ Factory.class
+SHA-256-Digest: 4UblgapquzOkpg0C2+BLUm8ruEj2StLfmP35UtaeURs=
+
+Name: com/sap/adt/destinations/internal/logon/AdtLogonService$1.class
+SHA-256-Digest: GUdaao1pexkNGFDU9YlbYYU8lcU+gbQNqZ/y//hx4gw=
+
+Name: com/sap/adt/destinations/logon/IAdtLogonService.class
+SHA-256-Digest: PKL+ayW2TDUfobvpgnyX4eX359aKD1U6Q4uBSuGFQtk=
+
+Name: com/sap/adt/destinations/logon/AdtLogonServiceFactory.class
+SHA-256-Digest: 4zrbwIcxygXRZUXyXTU0xAMxQRvYDKJ0b41lA2MAZoM=
+
+Name: com/sap/adt/destinations/internal/DestinationUtil.class
+SHA-256-Digest: G9VXfvf9XjUqYuovjCrAQo5Ix48/Y+/w62rWk2ZroAQ=
+
+Name: com/sap/adt/destinations/internal/logon/AdtLogonService.class
+SHA-256-Digest: qtsF+XqijZDg3MuTEIZ6CKZ1l4IVv24BQN/jMaEZ/ZY=
+
+Name: com/sap/adt/destinations/logon/testaccess/TestAccessAdtLogonServ
+ iceFactory.class
+SHA-256-Digest: HG0pqk44GhON/H7g8IL5H7pO//N26kj0c/uy/zTJLog=
+
+Name: com/sap/adt/destinations/IDestinationPlugin.class
+SHA-256-Digest: h8iRr5rgJQb+LsPvB5aZscNJUcYHAMrBs0dYCmdbuXM=
+
+Name: com/sap/adt/destinations/internal/Activator.class
+SHA-256-Digest: t1nFuJf58WGc2gif4RqEPpXcqwEfr4+SGJjovNppfr8=
+
+Name: com/sap/adt/destinations/logon/notification/package-info.class
+SHA-256-Digest: qAtw0DCyyH7YLWOIewWE383Rvqp4QNG99PgbBDMSMws=
+
+Name: com/sap/adt/destinations/passwordchange/IAdtPasswordChangeServic
+ e.class
+SHA-256-Digest: Naj0xJqF8AAgX/plP73WTLaGMfhpQiut3GzX1fFXV10=
+
+Name: com/sap/adt/destinations/logon/notification/ILoggedOnEvent.class
+SHA-256-Digest: MkqKVMN3BrN320TtzUgkvJfh5xJ+FmGPdovEbNIIlQs=
+
+Name: com/sap/adt/destinations/internal/logon/AdtLogonService$2.class
+SHA-256-Digest: u5nG2g9B9sZJKlhB/8u6/Q2d6tdwJbp84lbt8F1Jkhk=
+
