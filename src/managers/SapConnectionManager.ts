@@ -9,6 +9,7 @@ export interface SapConnection {
     name: string;
     host: string;
     port: number;
+    httpPort?: number;  // HTTP/HTTPS port for web services (usually different from RFC port)
     client: string;
     systemId: string;
     saprouter?: string;
@@ -33,6 +34,28 @@ export class SapConnectionManager {
     constructor(context: vscode.ExtensionContext) {
         this.context = context;
         this.loadConnections();
+    }
+
+    /**
+     * Get the HTTP port for web services.
+     * SAP GUI uses RFC protocol on port 32xx, but web services use HTTP on port 80xx.
+     * This method returns the HTTP port, using common SAP port patterns.
+     */
+    private getHttpPort(connection: SapConnection): number {
+        // If HTTP port is explicitly set, use it
+        if (connection.httpPort) {
+            return connection.httpPort;
+        }
+
+        // Try to derive HTTP port from RFC port
+        // Common pattern: RFC port 32xx → HTTP port 80xx
+        if (connection.port >= 3200 && connection.port < 3300) {
+            const instance = connection.port - 3200;
+            return 8000 + (instance * 10); // 3210 → 8010, 3200 → 8000, 3240 → 8040
+        }
+
+        // Default to port 8000
+        return 8000;
     }
 
     private loadConnections() {
@@ -126,11 +149,15 @@ export class SapConnectionManager {
         try {
             console.log(`Testing connection through SAP Router: ${connection.saprouter}`);
             
+            // Use HTTP port for web services, not RFC port
+            const httpPort = this.getHttpPort(connection);
+            console.log(`Using HTTP port ${httpPort} (RFC port ${connection.port} is for SAP GUI only)`);
+            
             // Create SAP Router tunnel
             const tunnel = new SapRouterTunnel(
                 connection.saprouter!,
                 connection.host,
-                connection.port
+                httpPort  // Use HTTP port, not RFC port!
             );
 
             try {
@@ -153,7 +180,7 @@ export class SapConnectionManager {
                 if (response.statusCode === 200 || response.statusCode === 401 || response.statusCode === 403) {
                     return { 
                         success: true, 
-                        message: `Connection successful through SAP Router!\nHTTP Status: ${response.statusCode}` 
+                        message: `Connection successful through SAP Router!\nHTTP Status: ${response.statusCode}\nHTTP Port: ${httpPort}` 
                     };
                 } else {
                     return { 
@@ -163,6 +190,23 @@ export class SapConnectionManager {
                 }
             } catch (tunnelError: any) {
                 tunnel.close();
+                
+                // If backend not responding on HTTP port, provide helpful message
+                if (tunnelError.message.includes('cannot reach target')) {
+                    return {
+                        success: false,
+                        message: `SAP Router cannot reach ${connection.host}:${httpPort}\n\n` +
+                                 `This could mean:\n` +
+                                 `  • HTTP/HTTPS service is not running on port ${httpPort}\n` +
+                                 `  • The system uses a different HTTP port\n` +
+                                 `  • Firewall blocks HTTP traffic (but allows RFC on port ${connection.port})\n\n` +
+                                 `Solutions:\n` +
+                                 `  1. Check SMICM transaction for the actual HTTP port\n` +
+                                 `  2. Use "Open in SAP GUI" option (works on RFC port ${connection.port})\n` +
+                                 `  3. Contact SAP Basis to enable HTTP service\n\n` +
+                                 `Note: SAP GUI works because it uses RFC protocol on port ${connection.port}, not HTTP.`
+                    };
+                }
                 
                 // If error code 78 or 79, provide helpful message
                 if (tunnelError.message.includes('error code 78') || tunnelError.message.includes('invalid route')) {
@@ -174,7 +218,7 @@ export class SapConnectionManager {
                                  `  1. Contact SAP Basis team to add route permission in saprouttab\n` +
                                  `  2. Connect via VPN and use Direct Connection mode\n` +
                                  `  3. Use "Open in SAP GUI" option (works without special permissions)\n\n` +
-                                 `Technical: Router at ${connection.saprouter} rejected route to ${connection.host}:${connection.port}`
+                                 `Technical: Router at ${connection.saprouter} rejected route to ${connection.host}:${httpPort}`
                     };
                 } else if (tunnelError.message.includes('error code 79') || tunnelError.message.includes('access denied')) {
                     return {
